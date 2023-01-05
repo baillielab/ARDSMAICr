@@ -39,3 +39,6 @@ LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
 URL: https://jonathanemillar.github.io/ARDSMAICr/
+Remotes: 
+    github::mattflor/chorddiag,
+    bioc::STRINGdb
