@@ -10,7 +10,6 @@ License: MIT + file LICENSE
 Depends: 
     R (>= 4.0)
 Imports: 
-    BiocManager (>= 1.30.19),
     chorddiag (>= 0.1.3),
     ComplexUpset (>= 1.3.3),
     dplyr (>= 1.0.10),
@@ -28,14 +27,11 @@ Imports:
     reactable (>= 0.4.1),
     reactablefmtr (>= 2.0.0),
     rlang (>= 1.0.6),
-    STRINGdb (>= 2.10.0),
     stringr (>= 1.5.0),
     tibble (>= 3.1.8),
     tidyr (>= 1.2.1),
     tidyselect (>= 1.2.0),
     viridis (>= 0.6.2)
-BiocViews:
-    STRINGdb 
 Remotes: 
     github::mattflor/chorddiag
 Encoding: UTF-8
