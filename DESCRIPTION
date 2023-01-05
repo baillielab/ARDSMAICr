@@ -9,7 +9,6 @@ Description: Convenience functions to analyse the output of the ARDS
 License: MIT + file LICENSE
 Depends: 
     R (>= 4.0)
-biocViews:
 Imports: 
     chorddiag (>= 0.1.3),
     ComplexUpset (>= 1.3.3),
