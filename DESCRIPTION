@@ -10,6 +10,7 @@ License: MIT + file LICENSE
 Depends: 
     R (>= 4.0)
 Imports: 
+    BiocManager (>= 1.30.19),
     chorddiag (>= 0.1.3),
     ComplexUpset (>= 1.3.3),
     dplyr (>= 1.0.10),
@@ -33,11 +34,12 @@ Imports:
     tidyr (>= 1.2.1),
     tidyselect (>= 1.2.0),
     viridis (>= 0.6.2)
+BiocViews:
+    STRINGdb 
+Remotes: 
+    github::mattflor/chorddiag
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
 URL: https://jonathanemillar.github.io/ARDSMAICr/
-Remotes: 
-    github::mattflor/chorddiag,
-    bioc::3.16/STRINGdb

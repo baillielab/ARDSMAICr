@@ -16,6 +16,7 @@
 #' @rdname initialise_string_db
 #'
 #' @import STRINGdb
+#' @import BiocManager
 
 initialise_string_db <- function(vers = "11.5", score_threshold = 200, input_directory = "") {
 
