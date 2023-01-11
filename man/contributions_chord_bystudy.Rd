@@ -2,18 +2,29 @@
 % Please edit documentation in R/study_contributions_chord_diagrams.R
 \name{contributions_chord_bystudy}
 \alias{contributions_chord_bystudy}
-\title{Create a chord diagram of contributions by study}
+\title{Contributions chord by study}
 \usage{
 contributions_chord_bystudy(data)
 }
 \arguments{
-\item{data}{-- Input in the format of \code{data_contributions}}
+\item{data}{Data frame in the format of \code{data_contributions}}
 }
 \value{
-An html chord plot
+An html chord diagram
 }
 \description{
-Creates an interactive html plot of contributions by study
+Creates an interactive html chord diagram of contributions to MAIC grouped by study.
+}
+\details{
+Input columns for \code{data_contributions} should be:
+\itemize{
+\item \code{study} - Study ID - chr
+\item \code{raw_information} - Raw information. Sum of gene scores for each study - dbl
+\item \code{information} - Information relative to the sum of all gene scores - dbl
+\item \code{raw_contribution} - Raw contribution. Sum of gene scores for each study only where a score
+contributes to the overall MAIC score - dbl
+\item \code{contribution} - Contribution relative to the sum of all such scores - dbl
+}
 }
 \examples{
 \dontrun{

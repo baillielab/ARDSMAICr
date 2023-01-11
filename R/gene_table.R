@@ -1,7 +1,16 @@
-#' @title Create gene table
-#' @description Create a searchable html table of genes ranked by maic score
-#' @param data -- Input in the format of `data_genes`
+#' @title Table of genes
+#' @description Creates a searchable html table of genes ranked by MAIC score.
+#' @param data Data frame in the format of `data_genes`
 #' @return An html table
+#' @details
+#' Input columns for `data_genes` should be (this is the standard output of the MAIC algorithm):
+#' * `gene` - HGNC gene symbol - chr
+#' * 1...
+#' * `uID` - Study unique identifier. Column contains study specific gene score - dbl
+#' * n...
+#' * `maic_score` - MAIC score for gene - dbl
+#' * `contributors` - Studies contributing to MAIC score by method - chr
+#' @md
 #' @examples
 #' \dontrun{
 #' if(interactive()){

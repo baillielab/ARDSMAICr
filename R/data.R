@@ -66,7 +66,7 @@
 #'     4th January, 2023
 #'
 #'
-#' @format ## `data_biolitminee`
+#' @format ## `data_biolitmine`
 #' A data frame with 271 rows and 3 columns:
 #' \describe{
 #'   \item{Gene}{HGNC symbol}

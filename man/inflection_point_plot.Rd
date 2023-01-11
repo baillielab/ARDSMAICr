@@ -2,19 +2,30 @@
 % Please edit documentation in R/gene_prioritisation.R
 \name{inflection_point_plot}
 \alias{inflection_point_plot}
-\title{Create a plot of the inflection point}
+\title{Plot the inflection point}
 \usage{
 inflection_point_plot(data)
 }
 \arguments{
-\item{data}{-- Input in the format of \code{data_genes}}
+\item{data}{Data frame in the format of \code{data_genes}}
 }
 \value{
 A point density plot
 }
 \description{
-Create a plot of genes ranked by maic score with the inflection point annotated and
-point density of genes illustrated
+Creates a plot of genes ranked by MAIC score with the inflection point annotated and
+the point density of genes illustrated.
+}
+\details{
+Input columns for \code{data_genes} should be (this is the standard output of the MAIC algorithm):
+\itemize{
+\item \code{gene} - HGNC gene symbol - chr
+\item 1...
+\item \code{uID} - Study unique identifier. Column contains study specific gene score - dbl
+\item n...
+\item \code{maic_score} - MAIC score for gene - dbl
+\item \code{contributors} - Studies contributing to MAIC score by method - chr
+}
 }
 \examples{
 \dontrun{

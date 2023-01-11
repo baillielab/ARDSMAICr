@@ -1,4 +1,50 @@
 url: https://jonathanemillar.github.io/ARDSMAICr/
 template:
   bootstrap: 5
-
+reference:
+- title: Systematic review summaries
+- contents:
+  - design_table
+  - methods_table
+- title: MAIC summaries
+- contents:
+  - count_genes
+  - count_lists
+  - genes_per_list
+  - genes_per_method
+  - lists_per_gene
+  - lists_per_method
+  - lists_per_method_per_gene
+  - methods_per_gene
+  - methods_upset
+- title: MAIC contributions
+- contents:
+  - contributions_calculation
+  - contributions_chord_bystudy
+  - contributions_chord_bymethod
+- title: MAIC genes
+- contents:
+  - gene_table
+  - inflection_point
+  - inflection_point_plot
+- title: Functional enrichment
+- contents:
+  - gp_count_pathways
+  - gp_enrichment
+  - gp_plot
+  - gp_table
+  - gp_tidy_results
+- title: Gene overlap
+- contents:
+  - overlap_count
+  - overlap_table
+  - overlap_test
+  - overlap_unidentified_table
+  - overlap_venn
+- title: Data
+- contents:
+  - data_biolitmine
+  - data_contributions
+  - data_covidmaic
+  - data_genes
+  - data_study

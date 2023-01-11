@@ -1,7 +1,27 @@
-#' @title Create a table of study designs
-#' @description Create an interactive html table of study designs
-#' @param data -- Input in the format of `data_study`
+#' @title Table of study designs
+#' @description Creates an interactive table summarising the designs of studies included in the
+#'     systematic review.
+#' @param data Data frame in the format of `data_study`
 #' @return An html table
+#' @details
+#' Input columns should be:
+#' * `id` - Integer 1 to n studies - dbl
+#' * `First_author` - First author family name - chr
+#' * `Article_title` - Article title - chr
+#' * `Year` - Year of publication - dbl
+#' * `Journal` - Journal - chr
+#' * `DOI` - Digital object identifier - dbl
+#' * `PMID` - PubMed ID - dbl
+#' * `uID` - Unique ID. Format is `First_Author Year PMID` - chr
+#' * `Method` - Study method e.g., "GWAS" - chr
+#' * `Technology` - Technology used e.g., "Microarray" - chr
+#' * `Tissue` - Tissue type sampled e.g., "BALF" - chr
+#' * `Cell` - Cell type sampled e.g., "Neutrophils" - chr
+#' * `Focus` Study focus e.g., "Susceptibility" - chr
+#' * `ARDS_pts` - Total number of patients with ARDS included in study - dbl
+#' * `ARDS_definition` - Definition of ARDS used in study - chr
+#' * `List_available` - Was the gene list associated with the study retrievable - lgl
+#' @md
 #' @examples
 #' \dontrun{
 #' if(interactive()){
@@ -54,10 +74,30 @@ design_table <- function(data) {
   return(table)
 }
 
-#' @title Create a table of study methods
-#' @description Create an interactive html table of study methods
-#' @param data -- Input in the format of `data_study`
+#' @title Table of study methods
+#' @description Creates an interactive table summarising the methods of studies included in the
+#'     systematic review.
+#' @param data Data frame in the format of `data_study`
 #' @return An html table
+#' @details
+#' Input columns should be:
+#' * `id` - Integer 1 to n studies - dbl
+#' * `First_author` - First author family name - chr
+#' * `Article_title` - Article title - chr
+#' * `Year` - Year of publication - dbl
+#' * `Journal` - Journal - chr
+#' * `DOI` - Digital object identifier - dbl
+#' * `PMID` - PubMed ID - dbl
+#' * `uID` - Unique ID. Format is `First_Author Year PMID` - chr
+#' * `Method` - Study method e.g., "GWAS" - chr
+#' * `Technology` - Technology used e.g., "Microarray" - chr
+#' * `Tissue` - Tissue type sampled e.g., "BALF" - chr
+#' * `Cell` - Cell type sampled e.g., "Neutrophils" - chr
+#' * `Focus` Study focus e.g., "Susceptibility" - chr
+#' * `ARDS_pts` - Total number of patients with ARDS included in study - dbl
+#' * `ARDS_definition` - Definition of ARDS used in study - chr
+#' * `List_available` - Was the gene list associated with the study retrievable - lgl
+#' @md
 #' @examples
 #' \dontrun{
 #' if(interactive()){

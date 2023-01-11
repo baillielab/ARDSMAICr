@@ -2,18 +2,40 @@
 % Please edit documentation in R/design_and_methods_tables.R
 \name{methods_table}
 \alias{methods_table}
-\title{Create a table of study methods}
+\title{Table of study methods}
 \usage{
 methods_table(data)
 }
 \arguments{
-\item{data}{-- Input in the format of \code{data_study}}
+\item{data}{Data frame in the format of \code{data_study}}
 }
 \value{
 An html table
 }
 \description{
-Create an interactive html table of study methods
+Creates an interactive table summarising the methods of studies included in the
+systematic review.
+}
+\details{
+Input columns should be:
+\itemize{
+\item \code{id} - Integer 1 to n studies - dbl
+\item \code{First_author} - First author family name - chr
+\item \code{Article_title} - Article title - chr
+\item \code{Year} - Year of publication - dbl
+\item \code{Journal} - Journal - chr
+\item \code{DOI} - Digital object identifier - dbl
+\item \code{PMID} - PubMed ID - dbl
+\item \code{uID} - Unique ID. Format is \verb{First_Author Year PMID} - chr
+\item \code{Method} - Study method e.g., "GWAS" - chr
+\item \code{Technology} - Technology used e.g., "Microarray" - chr
+\item \code{Tissue} - Tissue type sampled e.g., "BALF" - chr
+\item \code{Cell} - Cell type sampled e.g., "Neutrophils" - chr
+\item \code{Focus} Study focus e.g., "Susceptibility" - chr
+\item \code{ARDS_pts} - Total number of patients with ARDS included in study - dbl
+\item \code{ARDS_definition} - Definition of ARDS used in study - chr
+\item \code{List_available} - Was the gene list associated with the study retrievable - lgl
+}
 }
 \examples{
 \dontrun{

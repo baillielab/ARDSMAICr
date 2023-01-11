@@ -5,7 +5,7 @@
 \alias{data_biolitmine}
 \title{ARDS MAIC Update 1.0.0 BioLitMine results}
 \format{
-\subsection{\code{data_biolitminee}}{
+\subsection{\code{data_biolitmine}}{
 
 A data frame with 271 rows and 3 columns:
 \describe{

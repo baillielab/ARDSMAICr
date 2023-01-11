@@ -1,17 +1,30 @@
 #' @title Functional enrichment using gprofiler
-#' @description Performs functional enrichment of standard maic output against a range of databases
-#' @param data -- Input in the format of `data_study`
-#' @param p_threshold -- Threshold P value -- Default: 0.01
-#' @param source -- Database -- any combination of GO, GO:MF, GO:CC, GO:BP, KEGG, REAC, WP, or HPA
-#'     -- Default: c("GO", "KEGG", "REAC", "WP", "HPA")
+#' @description Performs functional enrichment of standard MAIC output against a range of databases.
+#' @param data Data frame in the format of `data_genes`
+#' @param p_threshold Threshold P value -- Default = 0.01
+#' @param source Database -- any combination of GO, GO:MF, GO:CC, GO:BP, KEGG, REAC, WP, or HPA
+#'     -- Default = c("GO", "KEGG", "REAC", "WP", "HPA")
 #' @return Enrichment result and associated metadata
-#' @details GO = Gene Ontology (MF = molecular function; CC = cellular component,
-#'     BP = biological process), KEGG = Kyoto Encyclopedia of Genes and Genomes, REAC = Reactome,
-#'     WP = WikiPathways, HPA = Human Protein Atlas
+#' @details
+#' Input columns for `data_genes` should be (this is the standard output of the MAIC algorithm):
+#' * `gene` - HGNC gene symbol - chr
+#' * 1...
+#' * `uID` - Study unique identifier. Column contains study specific gene score - dbl
+#' * n...
+#' * `maic_score` - MAIC score for gene - dbl
+#' * `contributors` - Studies contributing to MAIC score by method - chr
+#'
+#' Databases:
+#' * GO = Gene Ontology (MF = molecular function; CC = cellular component, BP = biological process)
+#' * KEGG = Kyoto Encyclopaedia of Genes and Genomes
+#' * REAC = Reactome
+#' * WP = WikiPathways
+#' * HPA = Human Protein Atlas
+#' @md
 #' @examples
 #' \dontrun{
 #' if(interactive()){
-#'  gp_enrichment(data_genes, 0.001, c("GO", "WP"))
+#'  gp_enrichment(data_genes, p_threshold = 0.001, source = c("REAC", "WP"))
 #'  }
 #' }
 #' @export
@@ -52,16 +65,15 @@ gp_enrichment <- function(data, p_threshold = 0.01, source = c("GO", "KEGG", "RE
 }
 
 #' @title Functional enrichment plot
-#' @description Create a Manhattan plot of functional enrichment results
-#' @param gp_result -- The return object of gp_enrichment()
-#' @param is_interactive -- Interactive plot -- Default: TRUE
+#' @description Creates a Manhattan plot of functional enrichment results.
+#' @param gp_result The return object of `gp_enrichment()`
+#' @param is_interactive Interactive plot -- Default = TRUE
 #' @return A Manhattan plot
 #' @examples
 #' \dontrun{
 #' if(interactive()){
-#'  data_genes |>
-#'    gp_enrichment(0.001, "WP") |>
-#'    gp_plot(is_interactive = FALSE)
+#'  gp_enrichment(data_genes, p_threshold = 0.001, source = c("REAC", "WP")) |>
+#'  gp_plot(is_interactive = FALSE)
 #'  }
 #' }
 #' @export
@@ -77,19 +89,18 @@ gp_plot <- function(gp_result, is_interactive = TRUE) {
 }
 
 #' @title Tidy functional enrichment results
-#' @description Returns a tidy tibble of the gprofiler output
-#' @param gp_result -- The return object of gp_enrichment()
+#' @description Returns a tidy tibble of the gprofiler output.
+#' @param gp_result The return object of `gp_enrichment()`
 #' @return A tibble
 #' @examples
 #' \dontrun{
 #' if(interactive()){
-#'  data_genes |>
-#'    gp_enrichment(0.001, "WP") |>
-#'    tidy_gp_results()
+#'  gp_enrichment(data_genes, p_threshold = 0.001, source = c("REAC", "WP")) |>
+#'  gp_tidy_results()
 #'  }
 #' }
 #' @export
-#' @rdname tidy_gp_results
+#' @rdname gp_tidy_results
 #'
 #' @import dplyr
 #' @import tidyselect
@@ -97,7 +108,7 @@ gp_plot <- function(gp_result, is_interactive = TRUE) {
 #' @import stringr
 #' @import forcats
 
-tidy_gp_results <- function(gp_result) {
+gp_tidy_results <- function(gp_result) {
 
   ## Extract result
 
@@ -118,27 +129,26 @@ tidy_gp_results <- function(gp_result) {
     dplyr::mutate(p_value = formatC(.data$p_value, format = "e", digits = 2))
 }
 
-#' @title Create a table of functional enrichment results
-#' @description Creates an interactive html table of the tidy output of gprofiler
-#' @param tidy_gp_res -- The return object of tidy_gp_results()
+#' @title Functional enrichment results table
+#' @description Creates an interactive html table of the tidy output of gprofiler.
+#' @param gp_tidy_result The return object of `gp_tidy_results()`
 #' @return An html table
 #' @examples
 #' \dontrun{
 #' if(interactive()){
-#'  data_genes |>
-#'    gp_enrichment(0.001, "WP") |>
-#'    tidy_gp_results() |>
-#'    gp_table()
+#'  gp_enrichment(data_genes, p_threshold = 0.001, source = c("REAC", "WP")) |>
+#'  gp_tidy_results() |>
+#'  gp_table()
 #'  }
 #' }
 #' @export
-#' @rdname gprofiler_table
+#' @rdname gp_table
 #'
 #' @import htmltools
 #' @import reactable
 #' @importFrom reactablefmtr espn
 
-gp_table <- function(tidy_gp_res) {
+gp_table <- function(gp_tidy_result) {
 
   ## Set style sheet
 
@@ -149,8 +159,8 @@ gp_table <- function(tidy_gp_res) {
 
   ## Html table
 
-  reactable::reactable(
-    tidy_gp_res,
+  table <- reactable::reactable(
+    gp_tidy_result,
     theme = reactablefmtr::espn(),
     fullWidth = TRUE,
     style = list(fontFamily = "Work Sans, sans-serif", fontSize = "30px"),
@@ -173,7 +183,7 @@ gp_table <- function(tidy_gp_res) {
       term_name = reactable::colDef(
         name = "Pathway",
         cell = function(value, index) {
-          term_id <- tidy_gp_res$term_id[index]
+          term_id <- gp_tidy_result$term_id[index]
           term_id <- if (!is.na(term_id)) term_id else "Unknown"
           htmltools::div(
             htmltools::div(style = list(fontWeight = 600, fontsize = 10), value),
@@ -204,29 +214,30 @@ gp_table <- function(tidy_gp_res) {
       )
     )
   )
+
+  return(table)
 }
 
-#' @title Count the number of enriched pathways
+#' @title Count enriched pathways
 #' @description Returns the total number of enriched pathways or the number of enriched pathways per
-#'     database
-#' @param gp_result -- The return object of gp_enrichment()
-#' @param by_pathway -- Count by pathway database -- Default: FALSE
+#'     database.
+#' @param gp_result The return object of `gp_enrichment()`
+#' @param by_pathway Count by pathway database -- Default = FALSE
 #' @return Either an integer or a tibble
 #' @examples
 #' \dontrun{
 #' if(interactive()){
-#'  data_genes |>
-#'    gp_enrichment(0.01, c("WP", "HPA")) |>
-#'    count_gp_pathways(by_pathway = TRUE)
+#'  gp_enrichment(data_genes, p_threshold = 0.001, source = c("REAC", "WP")) |>
+#'  gp_count_pathways()
 #'  }
 #' }
 #' @export
-#' @rdname count_gp_pathways
+#' @rdname gp_count_pathways
 #'
 #' @import dplyr
 #' @import forcats
 
-count_gp_pathways <- function(gp_result, by_pathway = FALSE){
+gp_count_pathways <- function(gp_result, by_pathway = FALSE){
 
   ## Extract result
 

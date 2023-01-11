@@ -1,8 +1,26 @@
 #' @title Count gene lists
-#' @description Return the total number of included gene lists
-#' @param data -- Input in the format of `data_study`
+#' @description Returns the total number of gene lists included in MAIC.
+#' @param data Data frame in the format of `data_study`
 #' @return An integer
-#'
+#' @details
+#' Input columns for `data_study` should be:
+#' * `id` - Integer 1 to n studies - dbl
+#' * `First_author` - First author family name - chr
+#' * `Article_title` - Article title - chr
+#' * `Year` - Year of publication - dbl
+#' * `Journal` - Journal - chr
+#' * `DOI` - Digital object identifier - dbl
+#' * `PMID` - PubMed ID - dbl
+#' * `uID` - Unique ID. Format is `First_Author Year PMID` - chr
+#' * `Method` - Study method e.g., "GWAS" - chr
+#' * `Technology` - Technology used e.g., "Microarray" - chr
+#' * `Tissue` - Tissue type sampled e.g., "BALF" - chr
+#' * `Cell` - Cell type sampled e.g., "Neutrophils" - chr
+#' * `Focus` Study focus e.g., "Susceptibility" - chr
+#' * `ARDS_pts` - Total number of patients with ARDS included in study - dbl
+#' * `ARDS_definition` - Definition of ARDS used in study - chr
+#' * `List_available` - Was the gene list associated with the study retrievable - lgl
+#' @md
 #' @examples
 #' \dontrun{
 #' if(interactive()){
@@ -11,16 +29,45 @@
 #' }
 #' @export
 #' @rdname count_lists
+#'
+#' @import dplyr
 
 count_lists <- function(data) {
+
+  ## Filter only available gene lists (included in MAIC)
+
+  data <- data |>
+    dplyr::filter(.data$List_available == TRUE)
+
   lists_unique <- unique(data$uID)
+
   length(lists_unique)
 }
 
-#' @title Count gene lists per method type
-#' @description Return the total number of gene lists belonging to each method identified
-#' @param data -- Input in the format of `data_study`
+#' @title Count gene lists by method
+#' @description Returns the total number of gene lists included in MAIC grouped by
+#'     study method.
+#' @param data Data frame in the format of `data_study`
 #' @return A tibble
+#' @details
+#' Input columns for `data_study` should be:
+#' * `id` - Integer 1 to n studies - dbl
+#' * `First_author` - First author family name - chr
+#' * `Article_title` - Article title - chr
+#' * `Year` - Year of publication - dbl
+#' * `Journal` - Journal - chr
+#' * `DOI` - Digital object identifier - dbl
+#' * `PMID` - PubMed ID - dbl
+#' * `uID` - Unique ID. Format is `First_Author Year PMID` - chr
+#' * `Method` - Study method e.g., "GWAS" - chr
+#' * `Technology` - Technology used e.g., "Microarray" - chr
+#' * `Tissue` - Tissue type sampled e.g., "BALF" - chr
+#' * `Cell` - Cell type sampled e.g., "Neutrophils" - chr
+#' * `Focus` Study focus e.g., "Susceptibility" - chr
+#' * `ARDS_pts` - Total number of patients with ARDS included in study - dbl
+#' * `ARDS_definition` - Definition of ARDS used in study - chr
+#' * `List_available` - Was the gene list associated with the study retrievable - lgl
+#' @md
 #' @examples
 #' \dontrun{
 #' if(interactive()){
@@ -34,16 +81,27 @@ count_lists <- function(data) {
 #' @importFrom rlang .data
 
 lists_per_method <- function(data) {
+
   data |>
+    dplyr::filter(.data$List_available == TRUE) |>
     dplyr::group_by(.data$Method) |>
     dplyr::summarise(count = dplyr::n()) |>
     dplyr::mutate(percentage = .data$count / sum(.data$count))
 }
 
 #' @title Count genes
-#' @description Return the total number of unique genes or SNPs across all gene lists
-#' @param data -- Input in the format of `data_genes`
+#' @description Returns the total number of unique genes or SNPs included in MAIC.
+#' @param data Data frame in the format of `data_genes`
 #' @return An integer
+#' @details
+#' Input columns for `data_genes` should be (this is the standard output of the MAIC algorithm):
+#' * `gene` - HGNC gene symbol - chr
+#' * 1...
+#' * `uID` - Study unique identifier. Column contains study specific gene score - dbl
+#' * n...
+#' * `maic_score` - MAIC score for gene - dbl
+#' * `contributors` - Studies contributing to MAIC score by method - chr
+#' @md
 #' @examples
 #' \dontrun{
 #' if(interactive()){
@@ -54,14 +112,25 @@ lists_per_method <- function(data) {
 #' @rdname count_genes
 
 count_genes <- function(data) {
+
   genes_unique <- unique(data$gene)
+
   length(genes_unique)
 }
 
-#' @title Count genes per gene list
-#' @description Return the number of unique genes or SNPs identified in each gene list
-#' @param data -- Input in the format of `data_genes`
+#' @title Count genes by gene list
+#' @description Returns the number of unique genes or SNPs identified in each gene list.
+#' @param data Data frame in the format of `data_genes`
 #' @return A tibble
+#' @details
+#' Input columns for `data_genes` should be (this is the standard output of the MAIC algorithm):
+#' * `gene` - HGNC gene symbol - chr
+#' * 1...
+#' * `uID` - Study unique identifier. Column contains study specific gene score - dbl
+#' * n...
+#' * `maic_score` - MAIC score for gene - dbl
+#' * `contributors` - Studies contributing to MAIC score by method - chr
+#' @md
 #' @examples
 #' \dontrun{
 #' if(interactive()){
@@ -76,6 +145,7 @@ count_genes <- function(data) {
 #' @import tidyr
 
 genes_per_list <- function(data) {
+
   data |>
     dplyr::select(-c(.data$maic_score, .data$contributors)) |>
     dplyr::mutate(dplyr::across(tidyselect::where(is.double), ~ as.logical(., na.rm = TRUE))) |>
@@ -87,11 +157,38 @@ genes_per_list <- function(data) {
     dplyr::arrange(.data$list)
 }
 
-#' @title Count genes per method
-#' @description Return the number of unique genes or SNPs identified by each method type
-#' @param data_study -- Input in the format of `data_study`
-#' @param data_genes -- Input in the format of `data_genes`
+#' @title Count genes by method type
+#' @description Returns the number of unique genes or SNPs identified by each method.
+#' @param data_study Data frame in the format of `data_study`
+#' @param data_genes Data frame in the format of `data_genes`
 #' @return A tibble
+#' @details
+#' Input columns for `data_study` should be:
+#' * `id` - Integer 1 to n studies - dbl
+#' * `First_author` - First author family name - chr
+#' * `Article_title` - Article title - chr
+#' * `Year` - Year of publication - dbl
+#' * `Journal` - Journal - chr
+#' * `DOI` - Digital object identifier - dbl
+#' * `PMID` - PubMed ID - dbl
+#' * `uID` - Unique ID. Format is `First_Author Year PMID` - chr
+#' * `Method` - Study method e.g., "GWAS" - chr
+#' * `Technology` - Technology used e.g., "Microarray" - chr
+#' * `Tissue` - Tissue type sampled e.g., "BALF" - chr
+#' * `Cell` - Cell type sampled e.g., "Neutrophils" - chr
+#' * `Focus` Study focus e.g., "Susceptibility" - chr
+#' * `ARDS_pts` - Total number of patients with ARDS included in study - dbl
+#' * `ARDS_definition` - Definition of ARDS used in study - chr
+#' * `List_available` - Was the gene list associated with the study retrievable - lgl
+#'
+#' Input columns for `data_genes` should be (this is the standard output of the MAIC algorithm):
+#' * `gene` - HGNC gene symbol - chr
+#' * 1...
+#' * `uID` - Study unique identifier. Column contains study specific gene score - dbl
+#' * n...
+#' * `maic_score` - MAIC score for gene - dbl
+#' * `contributors` - Studies contributing to MAIC score by method - chr
+#' @md
 #' @examples
 #' \dontrun{
 #' if(interactive()){
@@ -106,7 +203,9 @@ genes_per_list <- function(data) {
 #' @import tidyr
 
 genes_per_method <- function(data_study, data_genes) {
+
   methods <- data_study |>
+    dplyr::filter(.data$List_available == TRUE) |>
     dplyr::select(c(.data$uID, .data$Method)) |>
     dplyr::rename(list = .data$uID)
 
@@ -128,11 +227,20 @@ genes_per_method <- function(data_study, data_genes) {
     dplyr::ungroup()
 }
 
-#' @title Count the number of lists each gene or SNP is found in
-#' @description For each unique gene or SNP return the number of lists that gene or SNP is
-#'     found in
-#' @param data -- Input in the format of `data_genes`
+#' @title Count gene lists by gene
+#' @description For each unique gene or SNP returns the number of lists that gene or SNP is
+#'     found in.
+#' @param data Data frame in the format of `data_genes`
 #' @return A tibble
+#' @details
+#' Input columns for `data_genes` should be (this is the standard output of the MAIC algorithm):
+#' * `gene` - HGNC gene symbol - chr
+#' * 1...
+#' * `uID` - Study unique identifier. Column contains study specific gene score - dbl
+#' * n...
+#' * `maic_score` - MAIC score for gene - dbl
+#' * `contributors` - Studies contributing to MAIC score by method - chr
+#' @md
 #' @examples
 #' \dontrun{
 #' if(interactive()){
@@ -149,6 +257,7 @@ genes_per_method <- function(data_study, data_genes) {
 #' @import tidyselect
 
 lists_per_gene <- function(data) {
+
   data |>
     dplyr::select(-c(.data$maic_score, .data$contributors)) |>
     dplyr::mutate(dplyr::across(tidyselect::where(is.double), ~ as.logical(., na.rm = TRUE))) |>
@@ -158,12 +267,39 @@ lists_per_gene <- function(data) {
     dplyr::arrange(dplyr::desc(.data$n_lists))
 }
 
-#' @title Count the number of lists per method for each gene or SNP
-#' @description Return the number of lists each unique gene or SNP is found in stratified
-#'     by method type
-#' @param data_study -- Input in the format of `data_study`
-#' @param data_genes -- Input in the format of `data_genes`
+#' @title Count gene lists by method by gene
+#' @description Returns the number of lists each unique gene or SNP is found in stratified by
+#'     method.
+#' @param data_study Data frame in the format of `data_study`
+#' @param data_genes Data frame in the format of `data_genes`
 #' @return A tibble
+#' @details
+#' Input columns for `data_study` should be:
+#' * `id` - Integer 1 to n studies - dbl
+#' * `First_author` - First author family name - chr
+#' * `Article_title` - Article title - chr
+#' * `Year` - Year of publication - dbl
+#' * `Journal` - Journal - chr
+#' * `DOI` - Digital object identifier - dbl
+#' * `PMID` - PubMed ID - dbl
+#' * `uID` - Unique ID. Format is `First_Author Year PMID` - chr
+#' * `Method` - Study method e.g., "GWAS" - chr
+#' * `Technology` - Technology used e.g., "Microarray" - chr
+#' * `Tissue` - Tissue type sampled e.g., "BALF" - chr
+#' * `Cell` - Cell type sampled e.g., "Neutrophils" - chr
+#' * `Focus` Study focus e.g., "Susceptibility" - chr
+#' * `ARDS_pts` - Total number of patients with ARDS included in study - dbl
+#' * `ARDS_definition` - Definition of ARDS used in study - chr
+#' * `List_available` - Was the gene list associated with the study retrievable - lgl
+#'
+#' Input columns for `data_genes` should be (this is the standard output of the MAIC algorithm):
+#' * `gene` - HGNC gene symbol - chr
+#' * 1...
+#' * `uID` - Study unique identifier. Column contains study specific gene score - dbl
+#' * n...
+#' * `maic_score` - MAIC score for gene - dbl
+#' * `contributors` - Studies contributing to MAIC score by method - chr
+#' @md
 #' @examples
 #' \dontrun{
 #' if(interactive()){
@@ -181,7 +317,9 @@ lists_per_gene <- function(data) {
 #' @import tidyr
 
 lists_per_method_per_gene <- function(data_study, data_genes) {
+
   methods <- data_study |>
+    dplyr::filter(.data$List_available == TRUE) |>
     dplyr::select(c(.data$uID, .data$Method))
 
   data_method_count <- data_genes |>
@@ -200,10 +338,19 @@ lists_per_method_per_gene <- function(data_study, data_genes) {
     dplyr::ungroup()
 }
 
-#' @title Count the number of method types for each gene
-#' @description Return the number of method types supporting each unique gene or SNP
-#' @param data -- Input in the format of `data_genes`
+#' @title Count methods by gene
+#' @description Returns the number of methods supporting each unique gene or SNP.
+#' @param data Data frame in the format of `data_genes`
 #' @return A tibble
+#' @details
+#' Input columns for `data_genes` should be (this is the standard output of the MAIC algorithm):
+#' * `gene` - HGNC gene symbol - chr
+#' * 1...
+#' * `uID` - Study unique identifier. Column contains study specific gene score - dbl
+#' * n...
+#' * `maic_score` - MAIC score for gene - dbl
+#' * `contributors` - Studies contributing to MAIC score by method - chr
+#' @md
 #' @examples
 #' \dontrun{
 #' if(interactive()){

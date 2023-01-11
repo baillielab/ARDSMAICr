@@ -1,6 +1,6 @@
-#' @title Create an upset plot of method types
-#' @description Creates an upset plot of genes, methods, maic scores, and their intersections
-#' @param data -- Input in the format of `data_genes`
+#' @title Methods upset plot
+#' @description Creates an upset plot of genes, methods, MAIC scores, and their intersections.
+#' @param data Data frame in the format of `data_genes`
 #' @return An upset plot
 #' @examples
 #' \dontrun{

@@ -7,13 +7,24 @@
 count_genes(data)
 }
 \arguments{
-\item{data}{-- Input in the format of \code{data_genes}}
+\item{data}{Data frame in the format of \code{data_genes}}
 }
 \value{
 An integer
 }
 \description{
-Return the total number of unique genes or SNPs across all gene lists
+Returns the total number of unique genes or SNPs included in MAIC.
+}
+\details{
+Input columns for \code{data_genes} should be (this is the standard output of the MAIC algorithm):
+\itemize{
+\item \code{gene} - HGNC gene symbol - chr
+\item 1...
+\item \code{uID} - Study unique identifier. Column contains study specific gene score - dbl
+\item n...
+\item \code{maic_score} - MAIC score for gene - dbl
+\item \code{contributors} - Studies contributing to MAIC score by method - chr
+}
 }
 \examples{
 \dontrun{

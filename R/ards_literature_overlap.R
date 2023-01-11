@@ -1,16 +1,26 @@
-#' @title Create a table of ARDS genes found in an alternative list of genes
-#' @description Creates an interactive html table of genes found in common between ARDS MAIC and a
-#'     and a user supplied list of genes
-#' @param data_genes -- Input in the format of `data_genes`
-#' @param data_alternative -- Dataframe where the only column is gene symbols and titled gene,
+#' @title MAIC overlap table
+#' @description Creates an interactive html table of genes found in common between MAIC and a
+#'     and a user supplied list of genes.
+#' @param data_genes Data frame in the format of `data_genes`
+#' @param data_alternative Data frame where the only column is gene symbols and is titled gene,
 #'     unless is `data_biolitmine`
-#' @param biolitmine -- TRUE or FALSE -- Default = TRUE -- if comparing BioLitMine result using
+#' @param biolitmine Boolean -- Default = TRUE -- if comparing BioLitMine result using
 #'     `data_biolitmine`
 #' @return An html table
-#' @details Primary use is to compare ARDS MAIC with the results of a BioLitMine search for the MeSH
-#'     term "Respiratory Distress Syndrome, Adult". A secondary use case is to compare ARDS MAIC
-#'     with MAIC analyses performed in different conditions e.g., our pervious MAIC of SARS-CoV-2
-#'     whole-genome studies.
+#' @details
+#' Primary use is to compare ARDS MAIC with the results of a BioLitMine search for the MeSH
+#' term "Respiratory Distress Syndrome, Adult". A secondary use case is to compare ARDS MAIC
+#' with MAIC analyses performed in different conditions e.g., our previous MAIC of SARS-CoV-2
+#' whole-genome studies.
+#'
+#' Input columns for `data_genes` should be (this is the standard output of the MAIC algorithm):
+#' * `gene` - HGNC gene symbol - chr
+#' * 1...
+#' * `uID` - Study unique identifier. Column contains study specific gene score - dbl
+#' * n...
+#' * `maic_score` - MAIC score for gene - dbl
+#' * `contributors` - Studies contributing to MAIC score by method - chr
+#' @md
 #' @examples
 #' \dontrun{
 #' if(interactive()){
@@ -121,33 +131,43 @@ overlap_table <- function(data_genes, data_alternative, biolitmine = TRUE) {
   return(table)
 }
 
-#' @title Create a table of genes identified in an alternative list not identified by ARDS MAIC
-#' @description Create an interactive html table of genes found in an alternative list but not by
-#'     ARDS MAIC.
-#' @param data_genes -- Input in the format of `data_genes`
-#' @param data_alternative -- Dataframe where the only column is gene symbols and titled gene,
+#' @title MAIC unidentified table
+#' @description Create an interactive html table of genes found in an alternative list but not in
+#'     MAIC.
+#' @param data_genes Data frame in the format of `data_genes`
+#' @param data_alternative Data frame where the only column is gene symbols and titled gene,
 #'     unless is `data_biolitmine`
-#' @param biolitmine -- TRUE or FALSE -- Default = TRUE -- if comparing BioLitMine result using
+#' @param biolitmine Boolean -- Default = TRUE -- if comparing BioLitMine result using
 #'     `data_biolitmine`
 #' @return An html table (biolitmine) or a tibble (other source)
-#' @details Primary use is to compare ARDS MAIC with the results of a BioLitMine search for the MeSH
-#'     term "Respiratory Distress Syndrome, Adult". A secondary use case is to compare ARDS MAIC
-#'     with MAIC analyses performed in different conditions e.g., our pervious MAIC of SARS-CoV-2
-#'     whole-genome studies.
+#' @details
+#' Primary use is to compare ARDS MAIC with the results of a BioLitMine search for the MeSH
+#' term "Respiratory Distress Syndrome, Adult". A secondary use case is to compare ARDS MAIC
+#' with MAIC analyses performed in different conditions e.g., our pervious MAIC of SARS-CoV-2
+#' whole-genome studies.
+#'
+#' Input columns for `data_genes` should be (this is the standard output of the MAIC algorithm):
+#' * `gene` - HGNC gene symbol - chr
+#' * 1...
+#' * `uID` - Study unique identifier. Column contains study specific gene score - dbl
+#' * n...
+#' * `maic_score` - MAIC score for gene - dbl
+#' * `contributors` - Studies contributing to MAIC score by method - chr
+#' @md
 #' @examples
 #' \dontrun{
 #' if(interactive()){
-#'  unidentified_table(data_genes, data_biolitmine, biolitmine = TRUE)
+#'  overlap_unidentified_table(data_genes, data_biolitmine, biolitmine = TRUE)
 #'  }
 #' }
 #' @export
-#' @rdname unidentified_table
+#' @rdname overlap_unidentified_table
 #'
 #' @import dplyr
 #' @import reactable
 #' @importFrom reactablefmtr espn
 
-unidentified_table <- function(data_genes, data_alternative, biolitmine = TRUE) {
+overlap_unidentified_table <- function(data_genes, data_alternative, biolitmine = TRUE) {
 
   ## Extract maic gene names
 
@@ -214,15 +234,24 @@ unidentified_table <- function(data_genes, data_alternative, biolitmine = TRUE) 
   }
 }
 
-#' @title Create a venn diagram of ARDS MAIC and alternative gene list overlap
-#' @description Create a venn diagram of the overlap between ARDS MAIC genes and genes found in an
+#' @title MAIC overlap Venn diagram
+#' @description Creates a Venn diagram of the overlap between MAIC genes and genes found in an
 #'     alternative list.
-#' @param data_genes -- Input in the format of `data_genes`
-#' @param data_alternative -- Dataframe where the only column is gene symbols and titled gene,
+#' @param data_genes Data frame in the format of `data_genes`
+#' @param data_alternative Data frame where the only column is gene symbols and titled gene,
 #'     unless is `data_biolitmine`
-#' @param biolitmine -- TRUE or FALSE -- Default = TRUE -- if comparing BioLitMine result using
+#' @param biolitmine Boolean -- Default = TRUE -- if comparing BioLitMine result using
 #'     `data_biolitmine`
 #' @return Venn diagram
+#' @details
+#' Input columns for `data_genes` should be (this is the standard output of the MAIC algorithm):
+#' * `gene` - HGNC gene symbol - chr
+#' * 1...
+#' * `uID` - Study unique identifier. Column contains study specific gene score - dbl
+#' * n...
+#' * `maic_score` - MAIC score for gene - dbl
+#' * `contributors` - Studies contributing to MAIC score by method - chr
+#' @md
 #' @examples
 #' \dontrun{
 #' if(interactive()){
@@ -295,21 +324,30 @@ overlap_venn <- function(data_genes, data_alternative, biolitmine = TRUE) {
 }
 
 #' @title Count MAIC and alternative gene list overlap
-#' @description Return the total number of genes identified in the alternative list, the number of
-#' these genes found in ARDS MAIC, and the percentage of alternative list genes found in ARDS MAIC.
-#' @param data_genes -- Input in the format of `data_genes`
-#' @param data_alternative -- Dataframe where the first column is a gene list
+#' @description Returns the total number of genes identified in the alternative list, the number of
+#' these genes found in MAIC, and the percentage of alternative list genes found in MAIC.
+#' @param data_genes Data frame in the format of `data_genes`
+#' @param data_alternative Data frame where the first column is a gene list
 #' @return A list
+#' @details
+#' Input columns for `data_genes` should be (this is the standard output of the MAIC algorithm):
+#' * `gene` - HGNC gene symbol - chr
+#' * 1...
+#' * `uID` - Study unique identifier. Column contains study specific gene score - dbl
+#' * n...
+#' * `maic_score` - MAIC score for gene - dbl
+#' * `contributors` - Studies contributing to MAIC score by method - chr
+#' @md
 #' @examples
 #' \dontrun{
 #' if(interactive()){
-#'  count_overlap(data_genes, data_biolitmine)
+#'  overlap_count(data_genes, data_biolitmine)
 #'  }
 #' }
 #' @export
-#' @rdname count_overlap
+#' @rdname overlap_count
 
-count_overlap <- function(data_genes, data_alternative) {
+overlap_count <- function(data_genes, data_alternative) {
 
   ## Count number of genes found by biolitmine
 

@@ -2,18 +2,18 @@
 % Please edit documentation in R/study_methods_upset_plot.R
 \name{methods_upset}
 \alias{methods_upset}
-\title{Create an upset plot of method types}
+\title{Methods upset plot}
 \usage{
 methods_upset(data)
 }
 \arguments{
-\item{data}{-- Input in the format of \code{data_genes}}
+\item{data}{Data frame in the format of \code{data_genes}}
 }
 \value{
 An upset plot
 }
 \description{
-Creates an upset plot of genes, methods, maic scores, and their intersections
+Creates an upset plot of genes, methods, MAIC scores, and their intersections.
 }
 \examples{
 \dontrun{

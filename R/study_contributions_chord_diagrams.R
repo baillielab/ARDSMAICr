@@ -1,7 +1,16 @@
-#' @title Create a chord diagram of contributions by study
-#' @description Creates an interactive html plot of contributions by study
-#' @param data -- Input in the format of `data_contributions`
-#' @return An html chord plot
+#' @title Contributions chord by study
+#' @description Creates an interactive html chord diagram of contributions to MAIC grouped by study.
+#' @param data Data frame in the format of `data_contributions`
+#' @return An html chord diagram
+#' @details
+#' Input columns for `data_contributions` should be:
+#' * `study` - Study ID - chr
+#' * `raw_information` - Raw information. Sum of gene scores for each study - dbl
+#' * `information` - Information relative to the sum of all gene scores - dbl
+#' * `raw_contribution` - Raw contribution. Sum of gene scores for each study only where a score
+#'     contributes to the overall MAIC score - dbl
+#' * `contribution` - Contribution relative to the sum of all such scores - dbl
+#' @md
 #' @examples
 #' \dontrun{
 #' if(interactive()){
@@ -54,11 +63,39 @@ contributions_chord_bystudy <- function(data) {
   return(plot)
 }
 
-#' @title Create a chord diagram of contributions by method type
-#' @description Creates an interactive html plot of contributions by method type
-#' @param data_contributions -- Input in the format of `data_contributions`
-#' @param data_study -- Input in the format of `data_study`
-#' @return An html chord plot
+#' @title Contributions chord by method
+#' @description Creates an interactive html chord diagram of contributions to MAIC grouped by
+#'     method.
+#' @param data_contributions Data frame in the format of `data_contributions`
+#' @param data_study Data frame in the format of `data_study`
+#' @return An html chord diagram
+#' @details
+#' Input columns for `data_contributions` should be:
+#' * `study` - Study ID - chr
+#' * `raw_information` - Raw information. Sum of gene scores for each study - dbl
+#' * `information` - Information relative to the sum of all gene scores - dbl
+#' * `raw_contribution` - Raw contribution. Sum of gene scores for each study only where a score
+#'     contributes to the overall MAIC score - dbl
+#' * `contribution` - Contribution relative to the sum of all such scores - dbl
+#'
+#' Input columns for `data_study` should be:
+#' * `id` - Integer 1 to n studies - dbl
+#' * `First_author` - First author family name - chr
+#' * `Article_title` - Article title - chr
+#' * `Year` - Year of publication - dbl
+#' * `Journal` - Journal - chr
+#' * `DOI` - Digital object identifier - dbl
+#' * `PMID` - PubMed ID - dbl
+#' * `uID` - Unique ID. Format is `First_Author Year PMID` - chr
+#' * `Method` - Study method e.g., "GWAS" - chr
+#' * `Technology` - Technology used e.g., "Microarray" - chr
+#' * `Tissue` - Tissue type sampled e.g., "BALF" - chr
+#' * `Cell` - Cell type sampled e.g., "Neutrophils" - chr
+#' * `Focus` Study focus e.g., "Susceptibility" - chr
+#' * `ARDS_pts` - Total number of patients with ARDS included in study - dbl
+#' * `ARDS_definition` - Definition of ARDS used in study - chr
+#' * `List_available` - Was the gene list associated with the study retrievable - lgl
+#' @md
 #' @examples
 #' \dontrun{
 #' if(interactive()){

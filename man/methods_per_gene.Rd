@@ -2,18 +2,29 @@
 % Please edit documentation in R/study_methods_and_gene_support.R
 \name{methods_per_gene}
 \alias{methods_per_gene}
-\title{Count the number of method types for each gene}
+\title{Count methods by gene}
 \usage{
 methods_per_gene(data)
 }
 \arguments{
-\item{data}{-- Input in the format of \code{data_genes}}
+\item{data}{Data frame in the format of \code{data_genes}}
 }
 \value{
 A tibble
 }
 \description{
-Return the number of method types supporting each unique gene or SNP
+Returns the number of methods supporting each unique gene or SNP.
+}
+\details{
+Input columns for \code{data_genes} should be (this is the standard output of the MAIC algorithm):
+\itemize{
+\item \code{gene} - HGNC gene symbol - chr
+\item 1...
+\item \code{uID} - Study unique identifier. Column contains study specific gene score - dbl
+\item n...
+\item \code{maic_score} - MAIC score for gene - dbl
+\item \code{contributors} - Studies contributing to MAIC score by method - chr
+}
 }
 \examples{
 \dontrun{

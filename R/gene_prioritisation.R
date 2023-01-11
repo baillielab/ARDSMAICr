@@ -1,8 +1,17 @@
-#' @title Calculate the maic score inflection point
-#' @description Calculates the maic score and gene number at which the inflection point in the curve
-#'     of genes ranked by maic score occurs
-#' @param data -- Input in the format of `data_genes`
+#' @title Calculate the inflection point
+#' @description Calculates the MAIC score and gene number at which the inflection point in the curve
+#'     of genes ranked by MAIC score occurs.
+#' @param data Data frame in the format of `data_genes`
 #' @return A list of values
+#' @details
+#' Input columns for `data_genes` should be (this is the standard output of the MAIC algorithm):
+#' * `gene` - HGNC gene symbol - chr
+#' * 1...
+#' * `uID` - Study unique identifier. Column contains study specific gene score - dbl
+#' * n...
+#' * `maic_score` - MAIC score for gene - dbl
+#' * `contributors` - Studies contributing to MAIC score by method - chr
+#' @md
 #' @examples
 #' \dontrun{
 #' if(interactive()){
@@ -46,11 +55,19 @@ inflection_point <- function(data) {
   return(values)
 }
 
-#' @title Create a plot of the inflection point
-#' @description Create a plot of genes ranked by maic score with the inflection point annotated and
-#'     point density of genes illustrated
-#' @param data -- Input in the format of `data_genes`
+#' @title Plot the inflection point
+#' @description Creates a plot of genes ranked by MAIC score with the inflection point annotated and
+#'     the point density of genes illustrated.
+#' @param data Data frame in the format of `data_genes`
 #' @return A point density plot
+#' @details
+#' Input columns for `data_genes` should be (this is the standard output of the MAIC algorithm):
+#' * `gene` - HGNC gene symbol - chr
+#' * 1...
+#' * `uID` - Study unique identifier. Column contains study specific gene score - dbl
+#' * n...
+#' * `maic_score` - MAIC score for gene - dbl
+#' * `contributors` - Studies contributing to MAIC score by method - chr
 #' @examples
 #' \dontrun{
 #' if(interactive()){

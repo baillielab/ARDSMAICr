@@ -2,18 +2,29 @@
 % Please edit documentation in R/study_methods_and_gene_support.R
 \name{genes_per_list}
 \alias{genes_per_list}
-\title{Count genes per gene list}
+\title{Count genes by gene list}
 \usage{
 genes_per_list(data)
 }
 \arguments{
-\item{data}{-- Input in the format of \code{data_genes}}
+\item{data}{Data frame in the format of \code{data_genes}}
 }
 \value{
 A tibble
 }
 \description{
-Return the number of unique genes or SNPs identified in each gene list
+Returns the number of unique genes or SNPs identified in each gene list.
+}
+\details{
+Input columns for \code{data_genes} should be (this is the standard output of the MAIC algorithm):
+\itemize{
+\item \code{gene} - HGNC gene symbol - chr
+\item 1...
+\item \code{uID} - Study unique identifier. Column contains study specific gene score - dbl
+\item n...
+\item \code{maic_score} - MAIC score for gene - dbl
+\item \code{contributors} - Studies contributing to MAIC score by method - chr
+}
 }
 \examples{
 \dontrun{

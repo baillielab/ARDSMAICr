@@ -2,19 +2,30 @@
 % Please edit documentation in R/gene_prioritisation.R
 \name{inflection_point}
 \alias{inflection_point}
-\title{Calculate the maic score inflection point}
+\title{Calculate the inflection point}
 \usage{
 inflection_point(data)
 }
 \arguments{
-\item{data}{-- Input in the format of \code{data_genes}}
+\item{data}{Data frame in the format of \code{data_genes}}
 }
 \value{
 A list of values
 }
 \description{
-Calculates the maic score and gene number at which the inflection point in the curve
-of genes ranked by maic score occurs
+Calculates the MAIC score and gene number at which the inflection point in the curve
+of genes ranked by MAIC score occurs.
+}
+\details{
+Input columns for \code{data_genes} should be (this is the standard output of the MAIC algorithm):
+\itemize{
+\item \code{gene} - HGNC gene symbol - chr
+\item 1...
+\item \code{uID} - Study unique identifier. Column contains study specific gene score - dbl
+\item n...
+\item \code{maic_score} - MAIC score for gene - dbl
+\item \code{contributors} - Studies contributing to MAIC score by method - chr
+}
 }
 \examples{
 \dontrun{
