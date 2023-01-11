@@ -91,7 +91,7 @@ ARDSMAICR includes:
 
 1. `data_genes`
 
-This is the standard output of the [MAIC algorithm](https://github.com/baillielab/maic).
+The standard output of the [MAIC algorithm](https://github.com/baillielab/maic).
 
 It has the following format:
 
@@ -102,19 +102,19 @@ It has the following format:
 
 2. `data_study`
 
-This is summary data for studies included by the ARDS Genomics systematic review.
+Summary data for studies included by the ARDS Genomics systematic review.
 
 3. `data_contributions`
 
-This is the study contributions to MAIC derived by the `contributions_calculation()` function.
+Study contributions to MAIC derived from the `contributions_calculation()` function.
 
 4. `data_biolitmine`
 
-This is the result of a [BioLitMine](https://www.flyrnai.org/tools/biolitmine/web/) for a MeSH search against "Acute Respiratory Distress Syndrome, Adult".
+Results of a [BioLitMine](https://www.flyrnai.org/tools/biolitmine/web/) search for the MeSH "Acute Respiratory Distress Syndrome, Adult".
 
 5. `data_covidmaic` 
 
-This is a data frame of the genes identified by a MAIC of [SARS-CoV-2](https://doi.org/10.1038/s41586-020-03065-y). 
+A data frame of the genes identified by a MAIC of [SARS-CoV-2](https://doi.org/10.1038/s41586-020-03065-y). 
 
 <br />
 
