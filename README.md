@@ -4,6 +4,8 @@
 # ARDSMAICR <img src="man/figures/logo.png" align="right" height="139" />
 
 <!-- badges: start -->
+
+[![R-CMD-check](https://github.com/JonathanEMillar/ARDSMAICr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/JonathanEMillar/ARDSMAICr/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 ARDSMAICR is a package containing helper functions and data useful to
