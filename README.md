@@ -8,6 +8,8 @@
 [![R-CMD-check](https://github.com/JonathanEMillar/ARDSMAICr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/JonathanEMillar/ARDSMAICr/actions/workflows/R-CMD-check.yaml)
 [![test-coverage](https://github.com/JonathanEMillar/ARDSMAICr/actions/workflows/test-coverage.yaml/badge.svg)](https://github.com/JonathanEMillar/ARDSMAICr/actions/workflows/test-coverage.yaml)
 [![pkgdown](https://github.com/JonathanEMillar/ARDSMAICr/actions/workflows/pkgdown.yaml/badge.svg)](https://github.com/JonathanEMillar/ARDSMAICr/actions/workflows/pkgdown.yaml)
+[![Codecov test
+coverage](https://codecov.io/gh/JonathanEMillar/ARDSMAICr/branch/main/graph/badge.svg)](https://app.codecov.io/gh/JonathanEMillar/ARDSMAICr?branch=main)
 <!-- badges: end -->
 
 ARDSMAICR is a package containing helper functions and data useful to
