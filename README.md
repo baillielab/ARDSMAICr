@@ -1,12 +1,13 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# ARDSMAICR <img src="man/figures/logo.png" align="right" height="139" />
+# ARDSMAICR <img src="man/figures/logo.png" align="right" height="139"/>
 
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/JonathanEMillar/ARDSMAICr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/JonathanEMillar/ARDSMAICr/actions/workflows/R-CMD-check.yaml)
 [![codecov](https://codecov.io/gh/JonathanEMillar/ARDSMAICr/branch/main/graph/badge.svg?token=5ILIXWJ542)](https://codecov.io/gh/JonathanEMillar/ARDSMAICr)
+
 <!-- badges: end -->
 
 The ARDSMAICR package contains the results of a meta-analysis by
@@ -81,19 +82,31 @@ These data are contained in `data_genes`. It has the following format:
 | GENE_A | 0.000       | 1.234       | 0.000       | 1.234      | METHOD_1: study_2\_id                       |
 | GENE_B | 1.345       | 1.234       | 0.000       | 1.456      | METHOD_1: study_2\_id, METHOD_2: study_id_1 |
 
-Additional data are: - `data_study`. A summary of the studies identified
-by the systematic review, including their methods. -
-`data_contributions`. Calculated study contributions to MAIC. -
-`data_biolitmine`. The results of a [BioLitMine]() search for the MeSH
-“Respiratory Distress Syndrome, Adult”. - `data_covidmaic`. A ranked
-list of genes from a MAIC of [SARS-CoV-2 studies]().
+Additional data are:
+
+- `data_study`. A summary of the studies identified by the systematic
+  review, including their methods.
+- `data_contributions`. Calculated study contributions to MAIC.
+- `data_biolitmine`. The results of a [BioLitMine]() search for the MeSH
+  “Respiratory Distress Syndrome, Adult”.
+- `data_covidmaic`. A ranked list of genes from a MAIC of [SARS-CoV-2
+  studies]().
+
+<br />
 
 ### Helper functions
 
+<br />
+
 Several groups of functions useful in the analysis of the MAIC results
-are included. They fall into the following broad families: - Study
-summaries. - MAIC summaries. - MAIC genes. - MAIC contributions. -
-Functional enrichment. - Gene overlap.
+are included. They fall into the following broad families:
+
+- Study summaries.
+- MAIC summaries.
+- MAIC genes.
+- MAIC contributions.
+- Functional enrichment.
+- Gene overlap.
 
 The majority of these functions can be applied to the standard
 [MAIC](https://github.com/baillielab/maic) output of any analysis.
