@@ -66,28 +66,16 @@
 </div>
 <!-- badges: start -->
 
-<p>ARDSMAICR is a package containing helper functions and data useful to analyse the results of a Meta-analysis by Information Content of ARDS whole-genome studies.</p>
+<p>The ARDSMAICR package contains the results of a meta-analysis by information content (MAIC) of whole-genome studies of the host response to acute respiratory distress syndrome (ARDS). These data are accompanied by a range of helper functions useful for analysis.</p>
+<p><br></p>
+<div class="section level2">
+<h2 id="meta-analysis-by-information-content-maic">Meta-Analysis by Information Content (MAIC)<a class="anchor" aria-label="anchor" href="#meta-analysis-by-information-content-maic"></a>
+</h2>
+<p><br></p>
 <p><a href="https://github.com/baillielab/maic" class="external-link">MAIC</a> was developed in the <a href="https://baillielab.net" class="external-link">Baillie Lab</a>, Roslin Institute, University of Edinburgh as a method for combining lists of genes arising from diverse experimental sources.</p>
 <p>It has been used to study the host response to <a href="https://doi.org/10.1038/s41467-019-13965-x" class="external-link">Influenza</a> and <a href="https://doi.org/10.1038/s41586-020-03065-y" class="external-link">SARS-CoV-2</a>.</p>
-<p>MAIC consistently out performs similar algorithms in the case of ranked and unranked data sources and in the presence of high quality heterogeneity. Further details can be found <a href="https://doi.org/10.1093/bioinformatics/btac621" class="external-link">here</a>.</p>
-<p>The source code for MAIC can be found <a href="https://github.com/baillielab/maic" class="external-link">here</a>.</p>
-<p><br></p>
-<div class="section level2">
-<h2 id="ards-genomics-systematic-review">ARDS Genomics Systematic Review<a class="anchor" aria-label="anchor" href="#ards-genomics-systematic-review"></a>
-</h2>
-<p><br></p>
-<p>The ARDS Genomics Systematic Review is designed to identify original studies of human host genomics in Acute Respiratory Distress Syndrome.</p>
-<p>We include whole-genome studies, regardless of methodology or the specific research question. The primary intention is to recover lists of genes implicated in the host response.</p>
-<p>Details of the systematic review and the review protocol can be found on the study <a href="https://ardsmaic.site44.com" class="external-link">website</a>.</p>
-<p><br></p>
-</div>
-<div class="section level2">
-<h2 id="ards-genomics-maic">ARDS Genomics MAIC<a class="anchor" aria-label="anchor" href="#ards-genomics-maic"></a>
-</h2>
-<p><br></p>
-<p>The results of our systematic review are passed to MAIC.</p>
-<p>The output is a ranked list of genes, each with an associated MAIC score. The list summarises the total information supporting the association of any given gene with the host response to ARDS.</p>
-<p>Our current systematic review and MAIC covers the period <strong>1<sup>st</sup> January 1967 to 1<sup>st</sup> December 2022</strong>.</p>
+<p>MAIC consistently out performs similar algorithms in the case of ranked and unranked data sources and in the presence of heterogeneity in the quality of studies. Further details can be found <a href="https://doi.org/10.1093/bioinformatics/btac621" class="external-link">here</a>.</p>
+<p>The source code for MAIC is hosted <a href="https://github.com/baillielab/maic" class="external-link">here</a>.</p>
 <p><br></p>
 </div>
 <div class="section level2">
@@ -97,7 +85,7 @@
 <div class="section level3">
 <h3 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h3>
-<p>You can install the development version of ARDSMAICR from <a href="https://github.com/" class="external-link">GitHub</a> with:</p>
+<p>You can install the latest version of ARDSMAICR from <a href="https://github.com/" class="external-link">GitHub</a> with:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="va"><a href="https://devtools.r-lib.org/" class="external-link">devtools</a></span><span class="op">)</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"devtools"</span><span class="op">)</span></span>
 <span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"JonathanEMillar/ARDSMAICr"</span><span class="op">)</span></span></code></pre></div>
@@ -109,20 +97,14 @@
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://jonathanemillar.github.io/ARDSMAICr/">ARDSMAICR</a></span><span class="op">)</span></span></code></pre></div>
 <p><br></p>
-<p>ARDSMAICR includes:</p>
-<ul>
-<li><p>“Data” which provides the results of the most up to date ARDS Genomics systematic review and MAIC.</p></li>
-<li><p>“Helper functions” which assist in analysing these data.</p></li>
-</ul>
+</div>
+<div class="section level3">
+<h3 id="ards-maic-results">ARDS MAIC results<a class="anchor" aria-label="anchor" href="#ards-maic-results"></a>
+</h3>
 <p><br></p>
-<div class="section level4">
-<h4 id="data">Data<a class="anchor" aria-label="anchor" href="#data"></a>
-</h4>
-<ol style="list-style-type: decimal">
-<li><code>data_genes</code></li>
-</ol>
-<p>The standard output of the <a href="https://github.com/baillielab/maic" class="external-link">MAIC algorithm</a>.</p>
-<p>It has the following format:</p>
+<p>The systematic review, data extraction, and MAIC are described in detail on the study <a href="https://ardsmaic.site44.com" class="external-link">website</a>.</p>
+<p>The package contains the output of the MAIC covering the period <strong>1<sup>st</sup> January 1967 to 1<sup>st</sup> December 2022</strong>. Future releases will match regular updates of the systematic review.</p>
+<p>These data are contained in <code>data_genes</code>. It has the following format:</p>
 <table class="table">
 <colgroup>
 <col width="7%">
@@ -159,29 +141,13 @@
 </tr>
 </tbody>
 </table>
-<ol start="2" style="list-style-type: decimal">
-<li><code>data_study</code></li>
-</ol>
-<p>Summary data for studies included by the ARDS Genomics systematic review.</p>
-<ol start="3" style="list-style-type: decimal">
-<li><code>data_contributions</code></li>
-</ol>
-<p>Study contributions to MAIC derived from the <code><a href="reference/contributions_calculation.html">contributions_calculation()</a></code> function.</p>
-<ol start="4" style="list-style-type: decimal">
-<li><code>data_biolitmine</code></li>
-</ol>
-<p>Results of a <a href="https://www.flyrnai.org/tools/biolitmine/web/" class="external-link">BioLitMine</a> search for the MeSH “Acute Respiratory Distress Syndrome, Adult”.</p>
-<ol start="5" style="list-style-type: decimal">
-<li><code>data_covidmaic</code></li>
-</ol>
-<p>A data frame of the genes identified by a MAIC of <a href="https://doi.org/10.1038/s41586-020-03065-y" class="external-link">SARS-CoV-2</a>.</p>
-<p><br></p>
+<p>Additional data are: - <code>data_study</code>. A summary of the studies identified by the systematic review, including their methods. - <code>data_contributions</code>. Calculated study contributions to MAIC. - <code>data_biolitmine</code>. The results of a <a href="">BioLitMine</a> search for the MeSH “Respiratory Distress Syndrome, Adult”. - <code>data_covidmaic</code>. A ranked list of genes from a MAIC of <a href="">SARS-CoV-2 studies</a>.</p>
 </div>
-<div class="section level4">
-<h4 id="helper-functions">Helper functions<a class="anchor" aria-label="anchor" href="#helper-functions"></a>
-</h4>
-<p>These functions are provided to aid the analysis of MAIC. Most can be used for any output in the MAIC format.</p>
-</div>
+<div class="section level3">
+<h3 id="helper-functions">Helper functions<a class="anchor" aria-label="anchor" href="#helper-functions"></a>
+</h3>
+<p>Several groups of functions useful in the analysis of the MAIC results are included. They fall into the following broad families: - Study summaries. - MAIC summaries. - MAIC genes. - MAIC contributions. - Functional enrichment. - Gene overlap.</p>
+<p>The majority of these functions can be applied to the standard <a href="https://github.com/baillielab/maic" class="external-link">MAIC</a> output of any analysis.</p>
 </div>
 </div>
 </div>
