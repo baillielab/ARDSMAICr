@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/JonathanEMillar/ARDSMAICr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/JonathanEMillar/ARDSMAICr/actions/workflows/R-CMD-check.yaml)
-[![Codecov test coverage](https://codecov.io/gh/JonathanEMillar/ARDSMAICr/branch/main/graph/badge.svg)](https://app.codecov.io/gh/JonathanEMillar/ARDSMAICr?branch=main)
+[![codecov](https://codecov.io/gh/JonathanEMillar/ARDSMAICr/branch/main/graph/badge.svg?token=5ILIXWJ542)](https://codecov.io/gh/JonathanEMillar/ARDSMAICr)
 <!-- badges: end -->
 
 ARDSMAICR is a package containing helper functions and data useful to analyse the results of a Meta-analysis by Information Content of ARDS whole-genome studies. 
