@@ -4,10 +4,14 @@
 \alias{inflection_point_plot}
 \title{Plot the inflection point}
 \usage{
-inflection_point_plot(data)
+inflection_point_plot(data, first_break = 1000, increment = 500)
 }
 \arguments{
 \item{data}{Data frame in the format of \code{data_genes}}
+
+\item{first_break}{Integer value for first break on x-axis after inflection point -- Default = 1000}
+
+\item{increment}{Integer value for size of increment for subsequent breaks on x-axis -- Default = 500}
 }
 \value{
 A point density plot
@@ -30,7 +34,7 @@ Input columns for \code{data_genes} should be (this is the standard output of th
 \examples{
 \dontrun{
 if(interactive()){
- inflection_point_plot(data_genes)
+ inflection_point_plot(data_genes, first_break = 2000, incremnt = 1000)
  }
 }
 }

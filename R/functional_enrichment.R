@@ -40,6 +40,16 @@ gp_enrichment <- function(data, p_threshold = 0.01, source = c("GO", "KEGG", "RE
   gene_names <- data |>
     dplyr::pull(.data$gene)
 
+  if (p_threshold >= 1) {
+
+    stop("Provide a P value < 1")
+
+  } else if (!(source %in% c("GO", "KEGG", "REAC", "WP", "HPA"))) {
+
+    stop("Unrecognised database...")
+
+  } else {
+
   ## Conduct functional enrichment for H. sapiens against GO, KEGG, Reactome, WikiPathways, and
   ## the Human Protein Atlas add a P threshold of 0.01
 
@@ -60,7 +70,7 @@ gp_enrichment <- function(data, p_threshold = 0.01, source = c("GO", "KEGG", "RE
     sources = source,
     as_short_link = FALSE
   )
-
+ }
   return(gostres)
 }
 

@@ -34,6 +34,8 @@ gene_table <- function(data) {
   ## Use the contributors column in the standard maic output to identify methods associated with each gene
   ## will break if new methods identified in any subsequent update
 
+  warning("Only GWAS, TRANSCRIPTOMICS, & PROTEOMICS supported as methods...")
+
   data_info <- data |>
     dplyr::mutate(support = dplyr::case_when(
       stringr::str_detect(.data$contributors, "PROTEOMICS") & stringr::str_detect(.data$contributors, "TRANSCRIPTOMICS") & stringr::str_detect(.data$contributors, "GWAS") ~ "ALL",
@@ -46,6 +48,19 @@ gene_table <- function(data) {
       TRUE ~ as.character(.data$contributors)
     )) |>
     dplyr::mutate(support = forcats::as_factor(.data$support))
+
+  ## Set behaviour if unknown method included
+
+  data_info_check <- data_info |>
+    dplyr::mutate(n_methods = stringr::str_count(.data$contributors, ":")) |>
+    dplyr::mutate(n_support = stringr::str_length(.data$support)) |>
+    dplyr::filter(.data$n_methods != .data$n_support)
+
+  if (nrow(data_info_check) >= 1) {
+
+    stop("Unsupported methods detected...")
+
+  } else {
 
   ## Count and tidy the output
 
@@ -170,4 +185,5 @@ gene_table <- function(data) {
   g_table <- make_table(support_methods_cols)
 
   return(g_table)
+ }
 }

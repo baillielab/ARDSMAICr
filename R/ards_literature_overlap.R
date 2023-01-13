@@ -44,6 +44,21 @@ overlap_table <- function(data_genes, data_alternative, biolitmine = TRUE) {
   ## Set biolitmine behaviour
 
   if (biolitmine == TRUE) {
+
+    ## Check biolitmine format
+
+    col_names <- colnames(data_alternative)
+
+    check_names <- c("Gene", 'Last_10_PMIDS', "Publication_count")
+
+    diff <- dplyr::setdiff(check_names, col_names)
+
+    if (length(diff) >= 1) {
+
+      stop("Data not in BiolLitMine format...")
+
+    }
+
     ## Find common genes between maic and biolitmine
 
     common_genes <- maic_gene_names[(maic_gene_names %in% data_alternative$Gene)]
@@ -91,8 +106,7 @@ overlap_table <- function(data_genes, data_alternative, biolitmine = TRUE) {
         maic_ranking = reactable::colDef(name = "MAIC Rank", sticky = "left", minWidth = 75)
       )
     )
-
-  } else {
+   } else {
 
     ## Find common genes between maic and alternative gene list
 
@@ -176,6 +190,20 @@ overlap_unidentified_table <- function(data_genes, data_alternative, biolitmine 
   ## Set biolitmine behaviour
 
   if (biolitmine == TRUE) {
+
+    ## Check biolitmine format
+
+    col_names <- colnames(data_alternative)
+
+    check_names <- c("Gene", 'Last_10_PMIDS', "Publication_count")
+
+    diff <- dplyr::setdiff(check_names, col_names)
+
+    if (length(diff) >= 1) {
+
+      stop("Data not in BiolLitMine format...")
+
+    }
 
     ## Find genes present in biolitmine not identified by maic
 
@@ -274,6 +302,21 @@ overlap_venn <- function(data_genes, data_alternative, biolitmine = TRUE) {
   ## Set biolitmine behaviour
 
   if (biolitmine == TRUE) {
+
+    ## Check biolitmine format
+
+    col_names <- colnames(data_alternative)
+
+    check_names <- c("Gene", 'Last_10_PMIDS', "Publication_count")
+
+    diff <- dplyr::setdiff(check_names, col_names)
+
+    if (length(diff) >= 1) {
+
+      stop("Data not in BiolLitMine format...")
+
+    }
+
     ## Extract biolitmine gene names
 
     alternative_genes <- data_alternative |>

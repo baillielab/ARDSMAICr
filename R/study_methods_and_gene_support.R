@@ -34,14 +34,26 @@
 
 count_lists <- function(data) {
 
-  ## Filter only available gene lists (included in MAIC)
+  ## Check there are no duplicate entries
 
-  data <- data |>
-    dplyr::filter(.data$List_available == TRUE)
+  n_unique_id <- unique(data$uID)
+  n_unique_id <- length(n_unique_id)
+  n_list <- nrow(data)
 
-  lists_unique <- unique(data$uID)
+  if (n_list > n_unique_id) {
 
-  length(lists_unique)
+    stop("Duplicate lists detected...")
+
+  } else {
+
+    ## Filter only available gene lists (included in MAIC)
+
+    data <- data |>
+      dplyr::mutate(List_available = as.logical(.data$List_available)) |>
+      dplyr::filter(.data$List_available == TRUE)
+
+    nrow(data)
+  }
 }
 
 #' @title Count gene lists by method
@@ -82,11 +94,22 @@ count_lists <- function(data) {
 
 lists_per_method <- function(data) {
 
-  data |>
-    dplyr::filter(.data$List_available == TRUE) |>
-    dplyr::group_by(.data$Method) |>
-    dplyr::summarise(count = dplyr::n()) |>
-    dplyr::mutate(percentage = .data$count / sum(.data$count))
+  ## Check for missing values in the methods column
+
+  if (sum(is.na(data$Method)) > 0) {
+
+    stop("Studies without a method detected...")
+
+  } else {
+
+    ## Filter available lists, group by method, count lists, and calculate %
+
+    data |>
+      dplyr::filter(.data$List_available == TRUE) |>
+      dplyr::group_by(.data$Method) |>
+      dplyr::summarise(count = dplyr::n()) |>
+      dplyr::mutate(percentage = .data$count / sum(.data$count))
+  }
 }
 
 #' @title Count genes
@@ -113,7 +136,9 @@ lists_per_method <- function(data) {
 
 count_genes <- function(data) {
 
-  genes_unique <- unique(data$gene)
+  ## converts to lowercase to maintain case sensitivity
+
+  genes_unique <- unique(tolower(data$gene))
 
   length(genes_unique)
 }
@@ -204,6 +229,14 @@ genes_per_list <- function(data) {
 
 genes_per_method <- function(data_study, data_genes) {
 
+  ## Check for missing values in the methods column
+
+  if (sum(is.na(data_study$Method)) > 0) {
+
+    stop("Studies without a method detected...")
+
+  } else {
+
   methods <- data_study |>
     dplyr::filter(.data$List_available == TRUE) |>
     dplyr::select(c(.data$uID, .data$Method)) |>
@@ -225,6 +258,7 @@ genes_per_method <- function(data_study, data_genes) {
     dplyr::group_by(.data$Method) |>
     dplyr::summarise(n_genes = sum(.data$n_genes)) |>
     dplyr::ungroup()
+  }
 }
 
 #' @title Count gene lists by gene
@@ -318,6 +352,14 @@ lists_per_gene <- function(data) {
 
 lists_per_method_per_gene <- function(data_study, data_genes) {
 
+  ## Check for missing values in the methods column
+
+  if (sum(is.na(data_study$Method)) > 0) {
+
+    stop("Studies without a method detected...")
+
+  } else {
+
   methods <- data_study |>
     dplyr::filter(.data$List_available == TRUE) |>
     dplyr::select(c(.data$uID, .data$Method))
@@ -334,8 +376,9 @@ lists_per_method_per_gene <- function(data_study, data_genes) {
 
   n_methods_gene |>
     dplyr::group_by(.data$gene, .data$Method) |>
-    dplyr::summarise(n_methods = sum(.data$identified)) |>
+    dplyr::summarise(n_lists = sum(.data$identified)) |>
     dplyr::ungroup()
+  }
 }
 
 #' @title Count methods by gene
@@ -370,6 +413,8 @@ lists_per_method_per_gene <- function(data_study, data_genes) {
 methods_per_gene <- function(data) {
 
   ## Will break if any new method types are identified in a future update
+
+  warning("Only GWAS, TRANSCRIPTOMICS, & PROTEOMICS supported as methods...")
 
   contributions <- data |>
     dplyr::mutate(support = dplyr::case_when(

@@ -22,6 +22,8 @@ methods_upset <- function(data) {
 
   ## Will break if any new method types are identified in a future update
 
+  warning("Only GWAS, TRANSCRIPTOMICS, & PROTEOMICS supported as methods...")
+
   data_plot <- data |>
     dplyr::mutate(support = dplyr::case_when(
       stringr::str_detect(.data$contributors, "PROTEOMICS") & stringr::str_detect(.data$contributors, "TRANSCRIPTOMICS") & stringr::str_detect(.data$contributors, "GWAS") ~ "ALL",

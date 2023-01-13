@@ -3,10 +3,10 @@
 #'     list of genes.
 #' @param data_genes Data frame in the format of `data_study`
 #' @param overlap_genes Data frame where the first column lists gene symbols
-#' @param n_data_genes Number of MAIC genes to include -- Default = "All"
+#' @param n_data_genes Number of MAIC genes to include -- Default = "All" -- chr
 #' @param universe Size of gene universe. Either a user defined integer or "HGNC" = All protein
 #'     coding genes by HGNC, "FANTOM_L" = genes expressed in lung in FANTOM5, or "FANTOM_S" =
-#'     genes expressed in spleen in FANTOM5 -- Default: "HGNC"
+#'     genes expressed in spleen in FANTOM5 -- Default: "HGNC" -- chr
 #' @return OUTPUT_DESCRIPTION
 #' @details
 #' Input columns for `data_genes` should be (this is the standard output of the MAIC algorithm):
@@ -34,15 +34,17 @@
 #' @import GeneOverlap
 
 overlap_test <- function(data_genes, overlap_genes, n_data_genes = "All", universe = 19220) {
-
   ## Set behaviour for number of maic genes to include
 
   if (n_data_genes == "All") {
     n_data_genes <- nrow(data_genes)
-  }
-  if (is.numeric(n_data_genes)) {
-    n_data_genes <- n_data_genes
   } else {
+    n_data_genes <- as.numeric(n_data_genes)
+  }
+
+  n_condition <- n_data_genes > nrow(data_genes)
+
+  if (n_condition == TRUE) {
     stop("More genes than in MAIC")
   }
 
@@ -50,11 +52,9 @@ overlap_test <- function(data_genes, overlap_genes, n_data_genes = "All", univer
 
   if (universe == "HGNC") {
     universe <- 19220
-  }
-  if (universe == "FANTOM_L") {
+  } else if (universe == "FANTOM_L") {
     universe <- 12606
-  }
-  if (universe == "FANTOM_S") {
+  } else if (universe == "FANTOM_S") {
     universe <- 11512
   } else {
     n_data_genes <- n_data_genes
@@ -70,7 +70,9 @@ overlap_test <- function(data_genes, overlap_genes, n_data_genes = "All", univer
 
   data_genes_slice <- data_genes_slice$gene
 
-  data_overlap <- overlap_genes |> dplyr::select(, 1) %>% dplyr::pull()
+  data_overlap <- overlap_genes |>
+    dplyr::select(, 1) %>%
+    dplyr::pull()
 
   ## Create gene overlap object
 

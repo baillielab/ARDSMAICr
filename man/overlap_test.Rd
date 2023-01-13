@@ -11,11 +11,11 @@ overlap_test(data_genes, overlap_genes, n_data_genes = "All", universe = 19220)
 
 \item{overlap_genes}{Data frame where the first column lists gene symbols}
 
-\item{n_data_genes}{Number of MAIC genes to include -- Default = "All"}
+\item{n_data_genes}{Number of MAIC genes to include -- Default = "All" -- chr}
 
 \item{universe}{Size of gene universe. Either a user defined integer or "HGNC" = All protein
 coding genes by HGNC, "FANTOM_L" = genes expressed in lung in FANTOM5, or "FANTOM_S" =
-genes expressed in spleen in FANTOM5 -- Default: "HGNC"}
+genes expressed in spleen in FANTOM5 -- Default: "HGNC" -- chr}
 }
 \value{
 OUTPUT_DESCRIPTION

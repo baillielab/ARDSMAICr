@@ -118,6 +118,18 @@ methods_table <- function(data) {
   data <- data |>
     dplyr::select(c(.data$First_author, .data$PMID, .data$Year, .data$Method, .data$Technology, .data$Tissue, .data$Cell))
 
+  ## check for duplicates
+
+  data$Var <- paste(data$PMID, data$Method, data$Technology, sep="_")
+
+  number_distinct <- length(unique(data$Var))
+
+  if (number_distinct < nrow(data)) {
+
+    stop("Duplicates detected...if there are none please qualify Technologies")
+
+  } else {
+
   ## Themed html table
 
   table <- reactable::reactable(
@@ -146,6 +158,6 @@ methods_table <- function(data) {
       Cell = reactable::colDef(name = "Cell type", minWidth = 100, na = "-", align = "right")
     )
   )
-
+ }
   return(table)
 }
