@@ -66,8 +66,6 @@ library(ARDSMAICR)
 
 ### ARDS MAIC results
 
-<br />
-
 The systematic review, data extraction, and MAIC are described in detail
 on the study [website](https://ardsmaic.site44.com).
 
@@ -95,8 +93,6 @@ Additional data are:
 <br />
 
 ### Helper functions
-
-<br />
 
 Several groups of functions useful in the analysis of the MAIC results
 are included. They fall into the following broad families:

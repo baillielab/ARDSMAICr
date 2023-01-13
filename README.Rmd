@@ -69,8 +69,6 @@ library(ARDSMAICR)
 
 ### ARDS MAIC results
 
-<br />
-
 The systematic review, data extraction, and MAIC are described in detail on the study [website](https://ardsmaic.site44.com).
 
 The package contains the output of the MAIC covering the period **1^st^ January 1967 to 1^st^ December 2022**.
@@ -94,8 +92,6 @@ Additional data are:
 <br />
 
 ### Helper functions
-
-<br />
 
 Several groups of functions useful in the analysis of the MAIC results are included.
 They fall into the following broad families:
