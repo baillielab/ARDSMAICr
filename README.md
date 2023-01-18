@@ -51,7 +51,7 @@ You can install the latest version of ARDSMAICR from
 
 ``` r
 if (!require(devtools)) install.packages("devtools")
-devtools::install_github("JonathanEMillar/ARDSMAICr")
+devtools::install_github("baillielab/ARDSMAICr")
 ```
 
 <br />

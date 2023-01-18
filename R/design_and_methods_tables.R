@@ -132,6 +132,8 @@ methods_table <- function(data) {
 
   ## Themed html table
 
+  data <- data |> dplyr::select(-.data$Var)
+
   table <- reactable::reactable(
     data,
     theme = reactablefmtr::espn(),

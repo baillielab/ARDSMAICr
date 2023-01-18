@@ -54,7 +54,7 @@ You can install the latest version of ARDSMAICR from [GitHub](https://github.com
 
 ```{r ARDSMAICR installation, eval = FALSE}
 if (!require(devtools)) install.packages("devtools")
-devtools::install_github("JonathanEMillar/ARDSMAICr")
+devtools::install_github("baillielab/ARDSMAICr")
 ```
 
 <br />
@@ -78,7 +78,7 @@ These data are contained in `data_genes`.
 It has the following format:
 
 | gene   | study_1\_id | study_2\_id | study_n\_id | maic_score | contributors                                |
-|-----------|-----------|-----------|-----------|-----------|-------------------|
+|------------|------------|------------|------------|------------|-------------|
 | GENE_A | 0.000       | 1.234       | 0.000       | 1.234      | METHOD_1: study_2\_id                       |
 | GENE_B | 1.345       | 1.234       | 0.000       | 1.456      | METHOD_1: study_2\_id, METHOD_2: study_id_1 |
 
