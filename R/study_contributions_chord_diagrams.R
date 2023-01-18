@@ -30,7 +30,10 @@ contributions_chord_bystudy <- function(data) {
   ## Subset and tidy data for plot
 
   circle <- data |>
-    dplyr::select(c(.data$study, .data$contribution))
+    dplyr::select(c(.data$study, .data$contribution)) |>
+    dplyr::mutate(study = stringr::str_replace(.data$study, "(\\d{4})(\\d+)([^\\d]+)*", "\\1\\3")) |>
+    dplyr::mutate(contribution = .data$contribution*100) |>
+    dplyr::mutate(contribution = round(.data$contribution, 2))
 
   by_study <- as.data.frame(t(circle)) |>
     janitor::row_to_names(row_number = 1) |>
