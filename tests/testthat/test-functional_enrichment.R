@@ -6,12 +6,6 @@ test_that("correct P value", {
   expect_error(suppressWarnings(gp_enrichment(data_genes, p_threshold = 1, source = "GO")))
 })
 
-### test that sources are correct
-
-test_that("correct sources", {
-  expect_error(suppressWarnings(gp_enrichment(data_genes, p_threshold = 0.1, source = "ABC")))
-})
-
 ### check args are passed to gost()
 
 test_that("correct sources", {

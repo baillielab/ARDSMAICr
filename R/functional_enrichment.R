@@ -44,10 +44,6 @@ gp_enrichment <- function(data, p_threshold = 0.01, source = c("GO", "KEGG", "RE
 
     stop("Provide a P value < 1")
 
-  } else if (!(source %in% c("GO", "KEGG", "REAC", "WP", "HPA"))) {
-
-    stop("Unrecognised database...")
-
   } else {
 
   ## Conduct functional enrichment for H. sapiens against GO, KEGG, Reactome, WikiPathways, and
