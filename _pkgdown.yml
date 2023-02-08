@@ -40,7 +40,7 @@ reference:
   - contributions_calculation
   - contributions_chord_bymethod
   - contributions_chord_bystudy
-  - inf_adjacency_matrix
+  - inf_adj_matrix
   - normalise_gene_scores
 - title: "Functional enrichment"
   contents:
