@@ -40,6 +40,8 @@ reference:
   - contributions_calculation
   - contributions_chord_bymethod
   - contributions_chord_bystudy
+  - inf_adjacency_matrix
+  - normalise_gene_scores
 - title: "Functional enrichment"
   contents:
   - gp_count_pathways
