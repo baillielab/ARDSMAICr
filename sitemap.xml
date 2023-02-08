@@ -76,6 +76,9 @@
     <loc>https://baillielab.github.io/ARDSMAICr/reference/index.html</loc>
   </url>
   <url>
+    <loc>https://baillielab.github.io/ARDSMAICr/reference/inf_adj_matrix.html</loc>
+  </url>
+  <url>
     <loc>https://baillielab.github.io/ARDSMAICr/reference/inflection_point.html</loc>
   </url>
   <url>
@@ -98,6 +101,9 @@
   </url>
   <url>
     <loc>https://baillielab.github.io/ARDSMAICr/reference/methods_upset.html</loc>
+  </url>
+  <url>
+    <loc>https://baillielab.github.io/ARDSMAICr/reference/normalise_gene_scores.html</loc>
   </url>
   <url>
     <loc>https://baillielab.github.io/ARDSMAICr/reference/overlap_count.html</loc>
