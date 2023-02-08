@@ -7,7 +7,7 @@
 overlap_test(data_genes, overlap_genes, n_data_genes = "All", universe = 19220)
 }
 \arguments{
-\item{data_genes}{Data frame in the format of \code{data_study}}
+\item{data_genes}{Data frame in the format of \code{data_genes}}
 
 \item{overlap_genes}{Data frame where the first column lists gene symbols}
 

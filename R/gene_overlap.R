@@ -1,7 +1,7 @@
 #' @title Compute measures of gene overlap
 #' @description Compute measures of gene overlap between MAIC genes (or a subset) and a user defined
 #'     list of genes.
-#' @param data_genes Data frame in the format of `data_study`
+#' @param data_genes Data frame in the format of `data_genes`
 #' @param overlap_genes Data frame where the first column lists gene symbols
 #' @param n_data_genes Number of MAIC genes to include -- Default = "All" -- chr
 #' @param universe Size of gene universe. Either a user defined integer or "HGNC" = All protein
