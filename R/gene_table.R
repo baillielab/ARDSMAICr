@@ -49,19 +49,6 @@ gene_table <- function(data) {
     )) |>
     dplyr::mutate(support = forcats::as_factor(.data$support))
 
-  ## Set behaviour if unknown method included
-
-  data_info_check <- data_info |>
-    dplyr::mutate(n_methods = stringr::str_count(.data$contributors, ":")) |>
-    dplyr::mutate(n_support = stringr::str_length(.data$support)) |>
-    dplyr::filter(.data$n_methods != .data$n_support)
-
-  if (nrow(data_info_check) >= 1) {
-
-    stop("Unsupported methods detected...")
-
-  } else {
-
   ## Count and tidy the output
 
   data_info_count <- data_info |>
@@ -185,5 +172,4 @@ gene_table <- function(data) {
   g_table <- make_table(support_methods_cols)
 
   return(g_table)
- }
 }

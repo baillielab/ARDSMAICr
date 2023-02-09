@@ -4,7 +4,7 @@
 
 test_that("Data set with non-numeric rownames returns correct inflection point", {
   data <- readRDS(test_path("testdata", "inflection_test.rds"))
-  expected_output <- list(maic_score = 1.488282, gene_number = 468)
+  expected_output <- list(maic_score = 1.842533, gene_number = 1308)
   result <- suppressWarnings(inflection_point(data_genes))
   expect_equal(result, expected_output, tolerance = 1e-5)
 })

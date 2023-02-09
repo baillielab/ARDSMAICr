@@ -56,14 +56,15 @@ contributions_calculation <- function(data) {
   ## calculate raw contribution (sum of all gene scores for each study which contributes to the MAIC score)
 
   raw_contribution <- data |>
-    tidyr::separate(.data$contributors, c("study_1", "study_2", "study_3"), "\\,", fill = "right") |>
-    dplyr::mutate_at(c("study_1", "study_2", "study_3"), ~ stringr::str_remove(.x, "^(.*?:)")) |>
-    dplyr::mutate_at(c("study_1", "study_2", "study_3"), ~ stringr::str_trim(.x)) |>
-    dplyr::mutate_at(c("study_1", "study_2", "study_3"), ~ tidyr::replace_na(., "")) |>
+    tidyr::separate(.data$contributors, c("study_1", "study_2", "study_3", "study_4", "study_5"), "\\,", fill = "right") |>
+    dplyr::mutate_at(c("study_1", "study_2", "study_3", "study_4", "study_5"), ~ stringr::str_remove(.x, "^(.*?:)")) |>
+    dplyr::mutate_at(c("study_1", "study_2", "study_3", "study_4", "study_5"), ~ stringr::str_trim(.x)) |>
+    dplyr::mutate_at(c("study_1", "study_2", "study_3", "study_4", "study_5"), ~ tidyr::replace_na(., "")) |>
     dplyr::select(-.data$maic_score) |>
     dplyr::rowwise() |>
     dplyr::mutate(dplyr::across(tidyselect::where(is.numeric), ~ ifelse((
-      dplyr::cur_column() %in% study_1 | dplyr::cur_column() %in% study_2 | dplyr::cur_column() %in% study_3), ., NA))) |>
+      dplyr::cur_column() %in% study_1 | dplyr::cur_column() %in% study_2 | dplyr::cur_column() %in% study_3 | dplyr::cur_column() %in% study_4 | dplyr::cur_column() %in% study_5),
+      ., NA))) |>
     dplyr::ungroup() |>
     dplyr::summarise(across(tidyselect::where(is.numeric), sum, na.rm = TRUE)) |>
     tidyr::pivot_longer(

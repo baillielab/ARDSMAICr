@@ -1,12 +1,5 @@
 ## gene_table()
 
-### check unsupported methods error
-
-test_that("error for unsupported methods", {
-  data <- readRDS(test_path("testdata", "gene_table_methods.rds"))
-  expect_error(suppressWarnings(gene_table(data)))
-})
-
 ### test that columns are correct
 
 test_that("check that rank column is returned", {

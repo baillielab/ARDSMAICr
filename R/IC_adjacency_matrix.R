@@ -44,16 +44,17 @@ inf_adj_matrix <- function(data, contribution = FALSE, unique = TRUE, as_list = 
   if (contribution == TRUE) {
 
     df <- data |>
-      tidyr::separate(.data$contributors, c("study_1", "study_2", "study_3"), "\\,", fill = "right") |>
+      tidyr::separate(.data$contributors, c("study_1", "study_2", "study_3", "study_4", "study_5"), "\\,", fill = "right") |>
       dplyr::mutate_at(c("study_1", "study_2", "study_3"), ~ stringr::str_remove(.x, "^(.*?:)")) |>
       dplyr::mutate_at(c("study_1", "study_2", "study_3"), ~ stringr::str_trim(.x)) |>
       dplyr::mutate_at(c("study_1", "study_2", "study_3"), ~ tidyr::replace_na(., "")) |>
       dplyr::select(-.data$maic_score) |>
       dplyr::rowwise() |>
       dplyr::mutate(dplyr::across(tidyselect::where(is.numeric), ~ ifelse((
-        dplyr::cur_column() %in% study_1 | dplyr::cur_column() %in% study_2 | dplyr::cur_column() %in% study_3), ., NA))) |>
+        dplyr::cur_column() %in% study_1 | dplyr::cur_column() %in% study_2 | dplyr::cur_column() %in% study_3 | dplyr::cur_column() %in% study_4 | dplyr::cur_column() %in% study_5),
+        ., NA))) |>
       dplyr::ungroup() |>
-      dplyr::select(-c(.data$study_1, .data$study_2, .data$study_3)) |>
+      dplyr::select(-c(.data$study_1, .data$study_2, .data$study_3, .data$study_4, .data$study_5)) |>
       tibble::column_to_rownames(var = "gene")
 
   } else {
