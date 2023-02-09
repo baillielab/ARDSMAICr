@@ -16,6 +16,9 @@
     <loc>https://baillielab.github.io/ARDSMAICr/index.html</loc>
   </url>
   <url>
+    <loc>https://baillielab.github.io/ARDSMAICr/reference/categories_per_gene.html</loc>
+  </url>
+  <url>
     <loc>https://baillielab.github.io/ARDSMAICr/reference/contributions_calculation.html</loc>
   </url>
   <url>
@@ -52,6 +55,9 @@
     <loc>https://baillielab.github.io/ARDSMAICr/reference/gene_table.html</loc>
   </url>
   <url>
+    <loc>https://baillielab.github.io/ARDSMAICr/reference/genes_per_category.html</loc>
+  </url>
+  <url>
     <loc>https://baillielab.github.io/ARDSMAICr/reference/genes_per_list.html</loc>
   </url>
   <url>
@@ -83,6 +89,12 @@
   </url>
   <url>
     <loc>https://baillielab.github.io/ARDSMAICr/reference/inflection_point_plot.html</loc>
+  </url>
+  <url>
+    <loc>https://baillielab.github.io/ARDSMAICr/reference/lists_per_category.html</loc>
+  </url>
+  <url>
+    <loc>https://baillielab.github.io/ARDSMAICr/reference/lists_per_category_per_gene.html</loc>
   </url>
   <url>
     <loc>https://baillielab.github.io/ARDSMAICr/reference/lists_per_gene.html</loc>
