@@ -29,7 +29,7 @@ Input columns for \code{data_genes} should be (this is the standard output of th
 \examples{
 \dontrun{
 if(interactive()){
- count_genes(data_genes)
+ count_genes(ARDSMAICR::data_genes)
  }
 }
 }

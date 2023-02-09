@@ -13,7 +13,8 @@ methods_per_gene(data)
 A tibble
 }
 \description{
-Returns the number of methods supporting each unique gene or SNP.
+Returns the number of methods (the most concise categorisation of lists) supporting
+each unique gene or SNP.
 }
 \details{
 Input columns for \code{data_genes} should be (this is the standard output of the MAIC algorithm):
@@ -29,10 +30,9 @@ Input columns for \code{data_genes} should be (this is the standard output of th
 \examples{
 \dontrun{
 if(interactive()){
- IL6_method_support <- data_genes |>
+ ARDSMAICR::data_genes |>
    methods_per_gene() |>
    dplyr::filter(.data$gene == "IL6")
- print(IL6_method_support)
  }
 }
 }

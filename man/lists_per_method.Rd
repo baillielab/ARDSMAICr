@@ -14,7 +14,7 @@ A tibble
 }
 \description{
 Returns the total number of gene lists included in MAIC grouped by
-study method.
+study method (the most concise categorisation of lists).
 }
 \details{
 Input columns for \code{data_study} should be:
@@ -40,7 +40,7 @@ Input columns for \code{data_study} should be:
 \examples{
 \dontrun{
 if(interactive()){
- lists_per_method(data_study)
+ lists_per_method(ARDSMAICR::data_study)
  }
 }
 }

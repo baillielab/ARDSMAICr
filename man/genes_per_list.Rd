@@ -13,7 +13,8 @@ genes_per_list(data)
 A tibble
 }
 \description{
-Returns the number of unique genes or SNPs identified in each gene list.
+Returns the number of unique genes or SNPs identified in each gene list (the most
+concise categorisation of lists).
 }
 \details{
 Input columns for \code{data_genes} should be (this is the standard output of the MAIC algorithm):
@@ -29,7 +30,7 @@ Input columns for \code{data_genes} should be (this is the standard output of th
 \examples{
 \dontrun{
 if(interactive()){
- print(genes_per_list(data_genes), n = 50)
+ print(genes_per_list(ARDSMAICR::data_genes), n = 50)
  }
 }
 }

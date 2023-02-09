@@ -30,10 +30,9 @@ Input columns for \code{data_genes} should be (this is the standard output of th
 \examples{
 \dontrun{
 if(interactive()){
- IL6_list_count <- data_genes |>
+ ARDSMAICR::data_genes |>
    lists_per_gene() |>
    dplyr::filter(.data$gene == "IL6")
- print(IL6_list_count)
  }
 }
 }

@@ -16,7 +16,7 @@ A tibble
 }
 \description{
 Returns the number of lists each unique gene or SNP is found in stratified by
-method.
+method (the most concise categorisation of lists).
 }
 \details{
 Input columns for \code{data_study} should be:
@@ -52,10 +52,8 @@ Input columns for \code{data_genes} should be (this is the standard output of th
 \examples{
 \dontrun{
 if(interactive()){
- IL6_list_per_method_count <- data_genes |>
-   lists_per_method_per_gene() |>
-   dplyr::filter(.data$gene == "IL6")
- print(IL6_list_per_method_count)
+   lists_per_method_per_gene(ARDSMAICR::data_study, ARDSMAICR::data_genes) |>
+     dplyr::filter(.data$gene == "IL6")
  }
 }
 }

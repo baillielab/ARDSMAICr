@@ -15,7 +15,8 @@ genes_per_method(data_study, data_genes)
 A tibble
 }
 \description{
-Returns the number of unique genes or SNPs identified by each method.
+Returns the number of unique genes or SNPs identified by each method (the most
+concise categorisation of lists).
 }
 \details{
 Input columns for \code{data_study} should be:
@@ -51,7 +52,7 @@ Input columns for \code{data_genes} should be (this is the standard output of th
 \examples{
 \dontrun{
 if(interactive()){
- genes_per_method(data_study, data_genes)
+ genes_per_method(ARDSMAICR::data_study, ARDSMAICR::data_genes)
  }
 }
 }

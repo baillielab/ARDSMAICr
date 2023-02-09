@@ -25,23 +25,27 @@ reference:
   - count_lists
   - genes_per_list
   - genes_per_method
+  - genes_per_category
   - lists_per_gene
   - lists_per_method
   - lists_per_method_per_gene
+  - lists_per_category
+  - lists_per_category_per_gene
   - methods_per_gene
+  - categories_per_gene
   - methods_upset
 - title: "MAIC genes"
   contents:
   - gene_table
   - inflection_point
   - inflection_point_plot
-- title: "MAIC contributions"
+- title: "MAIC information"
   contents:
   - contributions_calculation
-  - contributions_chord_bymethod
-  - contributions_chord_bystudy
   - inf_adj_matrix
   - normalise_gene_scores
+  - contributions_chord_bymethod
+  - contributions_chord_bystudy
 - title: "Functional enrichment"
   contents:
   - gp_count_pathways
