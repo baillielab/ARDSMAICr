@@ -7,7 +7,7 @@
 gene_table(data)
 }
 \arguments{
-\item{data}{Data frame in the format of \code{data_genes}}
+\item{data}{Data frame in the format of \code{ARDSMAICR::data_genes}}
 }
 \value{
 An html table
@@ -29,7 +29,7 @@ Input columns for \code{data_genes} should be (this is the standard output of th
 \examples{
 \dontrun{
 if(interactive()){
- gene_table(data_genes)
+ gene_table(ARDSMAICR::data_genes)
  }
 }
 }

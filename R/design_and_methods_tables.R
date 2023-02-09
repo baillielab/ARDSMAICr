@@ -1,7 +1,7 @@
 #' @title Table of study designs
 #' @description Creates an interactive table summarising the designs of studies included in the
 #'     systematic review.
-#' @param data Data frame in the format of `data_study`
+#' @param data Data frame in the format of `ARDSMAICR::data_study`
 #' @return An html table
 #' @details
 #' Input columns should be:
@@ -25,7 +25,7 @@
 #' @examples
 #' \dontrun{
 #' if(interactive()){
-#'  design_table(data_study)
+#'  design_table(ARDSMAICR::data_study)
 #'  }
 #' }
 #' @export
@@ -77,7 +77,7 @@ design_table <- function(data) {
 #' @title Table of study methods
 #' @description Creates an interactive table summarising the methods of studies included in the
 #'     systematic review.
-#' @param data Data frame in the format of `data_study`
+#' @param data Data frame in the format of `ARDSMAICR::data_study`
 #' @return An html table
 #' @details
 #' Input columns should be:
@@ -101,7 +101,7 @@ design_table <- function(data) {
 #' @examples
 #' \dontrun{
 #' if(interactive()){
-#'  methods_table(data_study)
+#'  methods_table(ARDSMAICR::data_study)
 #'  }
 #' }
 #' @export

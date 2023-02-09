@@ -7,9 +7,9 @@
 categories_per_gene(data_study, data_genes)
 }
 \arguments{
-\item{data_study}{Data frame in the format of \code{data_study}}
+\item{data_study}{Data frame in the format of \code{ARDSMAICR::data_study}}
 
-\item{data_genes}{Data frame in the format of \code{data_genes}}
+\item{data_genes}{Data frame in the format of \code{ARDSMAICR::data_genes}}
 }
 \value{
 A tibble

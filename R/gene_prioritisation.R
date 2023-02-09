@@ -1,7 +1,7 @@
 #' @title Calculate the inflection point
 #' @description Calculates the MAIC score and gene number at which the inflection point in the curve
 #'     of genes ranked by MAIC score occurs.
-#' @param data Data frame in the format of `data_genes`
+#' @param data Data frame in the format of `ARDSMAICR::data_genes`
 #' @return A list of values
 #' @details
 #' Input columns for `data_genes` should be (this is the standard output of the MAIC algorithm):
@@ -15,7 +15,7 @@
 #' @examples
 #' \dontrun{
 #' if(interactive()){
-#'  inflection_point(data_genes)
+#'  inflection_point(ARDSMAICR::data_genes)
 #'  }
 #' }
 #' @export
@@ -58,7 +58,7 @@ inflection_point <- function(data) {
 #' @title Plot the inflection point
 #' @description Creates a plot of genes ranked by MAIC score with the inflection point annotated and
 #'     the point density of genes illustrated.
-#' @param data Data frame in the format of `data_genes`
+#' @param data Data frame in the format of `ARDSMAICR::data_genes`
 #' @param first_break Integer value for first break on x-axis after inflection point -- Default = 1000
 #' @param increment Integer value for size of increment for subsequent breaks on x-axis -- Default = 500
 #' @return A point density plot
@@ -73,7 +73,7 @@ inflection_point <- function(data) {
 #' @examples
 #' \dontrun{
 #' if(interactive()){
-#'  inflection_point_plot(data_genes, first_break = 2000, incremnt = 1000)
+#'  inflection_point_plot(ARDSMAICR::data_genes, first_break = 2000, incremnt = 1000)
 #'  }
 #' }
 #' @export

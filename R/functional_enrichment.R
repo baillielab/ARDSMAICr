@@ -1,6 +1,6 @@
 #' @title Functional enrichment using gprofiler
 #' @description Performs functional enrichment of standard MAIC output against a range of databases.
-#' @param data Data frame in the format of `data_genes`
+#' @param data Data frame in the format of `ARDSMAICR::data_genes`
 #' @param p_threshold Threshold P value -- Default = 0.01
 #' @param source Database -- any combination of GO, GO:MF, GO:CC, GO:BP, KEGG, REAC, WP, or HPA
 #'     -- Default = c("GO", "KEGG", "REAC", "WP", "HPA")
@@ -24,7 +24,7 @@
 #' @examples
 #' \dontrun{
 #' if(interactive()){
-#'  gp_enrichment(data_genes, p_threshold = 0.001, source = c("REAC", "WP"))
+#'  gp_enrichment(ARDSMAICR::data_genes, p_threshold = 0.001, source = c("REAC", "WP"))
 #'  }
 #' }
 #' @export
@@ -78,7 +78,7 @@ gp_enrichment <- function(data, p_threshold = 0.01, source = c("GO", "KEGG", "RE
 #' @examples
 #' \dontrun{
 #' if(interactive()){
-#'  gp_enrichment(data_genes, p_threshold = 0.001, source = c("REAC", "WP")) |>
+#'  gp_enrichment(ARDSMAICR::data_genes, p_threshold = 0.001, source = c("REAC", "WP")) |>
 #'  gp_plot(is_interactive = FALSE)
 #'  }
 #' }
@@ -101,7 +101,7 @@ gp_plot <- function(gp_result, is_interactive = TRUE) {
 #' @examples
 #' \dontrun{
 #' if(interactive()){
-#'  gp_enrichment(data_genes, p_threshold = 0.001, source = c("REAC", "WP")) |>
+#'  gp_enrichment(ARDSMAICR::data_genes, p_threshold = 0.001, source = c("REAC", "WP")) |>
 #'  gp_tidy_results()
 #'  }
 #' }
@@ -142,7 +142,7 @@ gp_tidy_results <- function(gp_result) {
 #' @examples
 #' \dontrun{
 #' if(interactive()){
-#'  gp_enrichment(data_genes, p_threshold = 0.001, source = c("REAC", "WP")) |>
+#'  gp_enrichment(ARDSMAICR::data_genes, p_threshold = 0.001, source = c("REAC", "WP")) |>
 #'  gp_tidy_results() |>
 #'  gp_table()
 #'  }
@@ -233,7 +233,7 @@ gp_table <- function(gp_tidy_result) {
 #' @examples
 #' \dontrun{
 #' if(interactive()){
-#'  gp_enrichment(data_genes, p_threshold = 0.001, source = c("REAC", "WP")) |>
+#'  gp_enrichment(ARDSMAICR::data_genes, p_threshold = 0.001, source = c("REAC", "WP")) |>
 #'  gp_count_pathways()
 #'  }
 #' }

@@ -1,6 +1,6 @@
 #' @title Count genes
 #' @description Returns the total number of unique genes or SNPs included in MAIC.
-#' @param data Data frame in the format of `data_genes`
+#' @param data Data frame in the format of `ARDSMAICR::data_genes`
 #' @return An integer
 #' @details
 #' Input columns for `data_genes` should be (this is the standard output of the MAIC algorithm):
@@ -35,7 +35,7 @@ count_genes <- function(data) {
 
 #' @title Count gene lists
 #' @description Returns the total number of gene lists included in MAIC.
-#' @param data Data frame in the format of `data_study`
+#' @param data Data frame in the format of `ARDSMAICR::data_study`
 #' @return An integer
 #' @details
 #' Input columns for `data_study` should be:
@@ -98,7 +98,7 @@ count_lists <- function(data) {
 #' @title Count genes by gene list
 #' @description Returns the number of unique genes or SNPs identified in each gene list (the most
 #'     concise categorisation of lists).
-#' @param data Data frame in the format of `data_genes`
+#' @param data Data frame in the format of `ARDSMAICR::data_genes`
 #' @return A tibble
 #' @details
 #' Input columns for `data_genes` should be (this is the standard output of the MAIC algorithm):
@@ -142,8 +142,8 @@ genes_per_list <- function(data) {
 #' @title Count genes by method type
 #' @description Returns the number of unique genes or SNPs identified by each method (the most
 #'     concise categorisation of lists).
-#' @param data_study Data frame in the format of `data_study`
-#' @param data_genes Data frame in the format of `data_genes`
+#' @param data_study Data frame in the format of `ARDSMAICR::data_study`
+#' @param data_genes Data frame in the format of `ARDSMAICR::data_genes`
 #' @return A tibble
 #' @details
 #' Input columns for `data_study` should be:
@@ -226,8 +226,8 @@ genes_per_method <- function(data_study, data_genes) {
 #' @title genes_per_category
 #' @description Returns the number of unique genes or SNPs identified by each category defined in
 #'     MAIC.
-#' @param data_study Data frame in the format of `data_study`
-#' @param data_genes Data frame in the format of `data_genes`
+#' @param data_study Data frame in the format of `ARDSMAICR::data_study`
+#' @param data_genes Data frame in the format of `ARDSMAICR::data_genes`
 #' @return A tibble
 #' @details
 #' Input columns for `data_study` should be:
@@ -316,7 +316,7 @@ genes_per_category <- function(data_study, data_genes) {
 #' @title Count gene lists by gene
 #' @description For each unique gene or SNP returns the number of lists that gene or SNP is
 #'     found in.
-#' @param data Data frame in the format of `data_genes`
+#' @param data Data frame in the format of `ARDSMAICR::data_genes`
 #' @return A tibble
 #' @details
 #' Input columns for `data_genes` should be (this is the standard output of the MAIC algorithm):
@@ -359,7 +359,7 @@ lists_per_gene <- function(data) {
 #' @title Count gene lists by method
 #' @description Returns the total number of gene lists included in MAIC grouped by
 #'     study method (the most concise categorisation of lists).
-#' @param data Data frame in the format of `data_study`
+#' @param data Data frame in the format of `ARDSMAICR::data_study`
 #' @return A tibble
 #' @details
 #' Input columns for `data_study` should be:
@@ -419,8 +419,8 @@ lists_per_method <- function(data) {
 #' @title Count gene lists by method by gene
 #' @description Returns the number of lists each unique gene or SNP is found in stratified by
 #'     method (the most concise categorisation of lists).
-#' @param data_study Data frame in the format of `data_study`
-#' @param data_genes Data frame in the format of `data_genes`
+#' @param data_study Data frame in the format of `ARDSMAICR::data_study`
+#' @param data_genes Data frame in the format of `ARDSMAICR::data_genes`
 #' @return A tibble
 #' @details
 #' Input columns for `data_study` should be:
@@ -501,7 +501,7 @@ lists_per_method_per_gene <- function(data_study, data_genes) {
 #' @title Count gene lists by category
 #' @description Returns the total number of gene lists included in MAIC grouped by
 #'     study category.
-#' @param data Data frame in the format of `data_study`
+#' @param data Data frame in the format of `ARDSMAICR::data_study`
 #' @return A tibble
 #' @details
 #' Input columns for `data_study` should be:
@@ -566,8 +566,8 @@ lists_per_category <- function(data) {
 #' @title Count gene lists by category by gene
 #' @description Returns the number of lists each unique gene or SNP is found in stratified by
 #'    category.
-#' @param data_study Data frame in the format of `data_study`
-#' @param data_genes Data frame in the format of `data_genes`
+#' @param data_study Data frame in the format of `ARDSMAICR::data_study`
+#' @param data_genes Data frame in the format of `ARDSMAICR::data_genes`
 #' @return A tibble
 #' @details
 #' Input columns for `data_study` should be:
@@ -656,7 +656,7 @@ lists_per_category_per_gene <- function(data_study, data_genes) {
 #' @title Count methods by gene
 #' @description Returns the number of methods (the most concise categorisation of lists) supporting
 #'     each unique gene or SNP.
-#' @param data Data frame in the format of `data_genes`
+#' @param data Data frame in the format of `ARDSMAICR::data_genes`
 #' @return A tibble
 #' @details
 #' Input columns for `data_genes` should be (this is the standard output of the MAIC algorithm):
@@ -722,8 +722,8 @@ methods_per_gene <- function(data) {
 
 #' @title Count categories per gene
 #' @description Returns the number of categories supporting each unique gene or SNP.
-#' @param data_study Data frame in the format of `data_study`
-#' @param data_genes Data frame in the format of `data_genes`
+#' @param data_study Data frame in the format of `ARDSMAICR::data_study`
+#' @param data_genes Data frame in the format of `ARDSMAICR::data_genes`
 #' @return A tibble
 #' @details
 #' Input columns for `data_study` should be:

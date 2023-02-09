@@ -1,6 +1,6 @@
 #' @title Table of genes
 #' @description Creates a searchable html table of genes ranked by MAIC score.
-#' @param data Data frame in the format of `data_genes`
+#' @param data Data frame in the format of `ARDSMAICR::data_genes`
 #' @return An html table
 #' @details
 #' Input columns for `data_genes` should be (this is the standard output of the MAIC algorithm):
@@ -14,7 +14,7 @@
 #' @examples
 #' \dontrun{
 #' if(interactive()){
-#'  gene_table(data_genes)
+#'  gene_table(ARDSMAICR::data_genes)
 #'  }
 #' }
 #' @export

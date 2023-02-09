@@ -7,13 +7,13 @@
 overlap_venn(data_genes, data_alternative, biolitmine = TRUE)
 }
 \arguments{
-\item{data_genes}{Data frame in the format of \code{data_genes}}
+\item{data_genes}{Data frame in the format of \code{ARDSMAICR::data_genes}}
 
 \item{data_alternative}{Data frame where the only column is gene symbols and titled gene,
-unless is \code{data_biolitmine}}
+unless is \code{ARDSMAICR::data_biolitmine}}
 
 \item{biolitmine}{Boolean -- Default = TRUE -- if comparing BioLitMine result using
-\code{data_biolitmine}}
+\code{ARDSMAICR::data_biolitmine}}
 }
 \value{
 Venn diagram
@@ -36,7 +36,7 @@ Input columns for \code{data_genes} should be (this is the standard output of th
 \examples{
 \dontrun{
 if(interactive()){
- overlap_venn(data_genes, data_biolitmine, biolitmine = TRUE)
+ overlap_venn(ARDSMAICR::data_genes, ARDSMAICR::data_biolitmine, biolitmine = TRUE)
  }
 }
 }

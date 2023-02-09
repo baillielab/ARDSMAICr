@@ -7,9 +7,9 @@
 contributions_chord_bymethod(data_contributions, data_study)
 }
 \arguments{
-\item{data_contributions}{Data frame in the format of \code{data_contributions}}
+\item{data_contributions}{Data frame in the format of \code{ARDSMAICR::data_contributions}}
 
-\item{data_study}{Data frame in the format of \code{data_study}}
+\item{data_study}{Data frame in the format of \code{ARDSMAICR::data_study}}
 }
 \value{
 An html chord diagram
@@ -52,7 +52,7 @@ Input columns for \code{data_study} should be:
 \examples{
 \dontrun{
 if(interactive()){
- contributions_chord_bymethod(data_contributions, data_study)
+ contributions_chord_bymethod(ARDSMAICR::data_contributions, ARDSMAICR::data_study)
  }
 }
 }

@@ -7,7 +7,7 @@
 inf_adj_matrix(data, contribution = FALSE, unique = TRUE, as_list = FALSE)
 }
 \arguments{
-\item{data}{Data frame in the format of \code{data_genes}}
+\item{data}{Data frame in the format of \code{ARDSMAICR::data_genes}}
 
 \item{contribution}{Return the information contribution -- Default = FALSE}
 
@@ -42,7 +42,7 @@ Input columns for \code{data_genes} should be (this is the standard output of th
 \examples{
 \dontrun{
 if(interactive()){
- inf_agj_matrix(data_genes, contribution = TRUE, unique = FALSE)
+ inf_agj_matrix(ARDSMAICR::data_genes, contribution = TRUE, unique = FALSE)
  }
 }
 }

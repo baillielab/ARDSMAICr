@@ -1,7 +1,7 @@
 #' @title Information adjacency matrix
 #' @description Creates an adjacency matrix of shared information content/contribution between
 #'     studies.
-#' @param data Data frame in the format of `data_genes`
+#' @param data Data frame in the format of `ARDSMAICR::data_genes`
 #' @param contribution Return the information contribution -- Default = FALSE
 #' @param unique Include information for genes uniquely identified by a study -- Default = TRUE
 #' @param as_list Option to return an adjacency list -- Default = FALSE
@@ -24,7 +24,7 @@
 #' @examples
 #' \dontrun{
 #' if(interactive()){
-#'  inf_agj_matrix(data_genes, contribution = TRUE, unique = FALSE)
+#'  inf_agj_matrix(ARDSMAICR::data_genes, contribution = TRUE, unique = FALSE)
 #'  }
 #' }
 #' @rdname inf_adj_matrix
@@ -135,7 +135,7 @@ inf_adj_matrix <- function(data, contribution = FALSE, unique = TRUE, as_list = 
 
 #' @title Normalise gene scores
 #' @description Normalises genes scores to account for the length of the input list.
-#' @param data Data frame in the format of `data_genes`
+#' @param data Data frame in the format of `ARDSMAICR::data_genes`
 #' @return A data frame
 #' @details
 #' Normalised by dividing the gene scores for each list by the length of the list.
@@ -150,7 +150,7 @@ inf_adj_matrix <- function(data, contribution = FALSE, unique = TRUE, as_list = 
 #' @examples
 #' \dontrun{
 #' if(interactive()){
-#'  normalised_info_content_matrix <- data_genes |>
+#'  normalised_info_content_matrix <- ARDSMAICR::data_genes |>
 #'  normalise_gene_scores() |>
 #'  inf_adj_matrix(unique = FALSE)
 #'  }

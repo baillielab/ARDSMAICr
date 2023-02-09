@@ -7,7 +7,7 @@
 methods_table(data)
 }
 \arguments{
-\item{data}{Data frame in the format of \code{data_study}}
+\item{data}{Data frame in the format of \code{ARDSMAICR::data_study}}
 }
 \value{
 An html table
@@ -40,7 +40,7 @@ Input columns should be:
 \examples{
 \dontrun{
 if(interactive()){
- methods_table(data_study)
+ methods_table(ARDSMAICR::data_study)
  }
 }
 }

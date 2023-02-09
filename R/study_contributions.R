@@ -1,6 +1,6 @@
 #' @title Calculate study contributions
 #' @description Calculates the raw and relative information an contribution of studies to MAIC.
-#' @param data Data frame in the format of `data_genes`
+#' @param data Data frame in the format of `ARDSMAICR::data_genes`
 #' @return A tibble
 #' @details
 #' Input columns for `data_genes` should be (this is the standard output of the MAIC algorithm):
@@ -21,7 +21,7 @@
 #' @examples
 #' \dontrun{
 #' if(interactive()){
-#'  contributions_calculation(data_genes)
+#'  contributions_calculation(ARDSMAICR::data_genes)
 #'  }
 #' }
 #' @export

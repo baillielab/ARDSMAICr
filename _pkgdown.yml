@@ -34,6 +34,7 @@ reference:
   - methods_per_gene
   - categories_per_gene
   - methods_upset
+  - categories_upset
 - title: "MAIC genes"
   contents:
   - gene_table

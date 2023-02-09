@@ -7,7 +7,7 @@
 overlap_count(data_genes, data_alternative)
 }
 \arguments{
-\item{data_genes}{Data frame in the format of \code{data_genes}}
+\item{data_genes}{Data frame in the format of \code{ARDSMAICR::data_genes}}
 
 \item{data_alternative}{Data frame where the first column is a gene list}
 }
@@ -32,7 +32,7 @@ Input columns for \code{data_genes} should be (this is the standard output of th
 \examples{
 \dontrun{
 if(interactive()){
- overlap_count(data_genes, data_biolitmine)
+ overlap_count(ARDSMAICR::data_genes, ARDSMAICR::data_biolitmine)
  }
 }
 }

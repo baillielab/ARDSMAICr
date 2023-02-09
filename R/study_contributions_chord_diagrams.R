@@ -1,6 +1,6 @@
 #' @title Contributions chord by study
 #' @description Creates an interactive html chord diagram of contributions to MAIC grouped by study.
-#' @param data Data frame in the format of `data_contributions`
+#' @param data Data frame in the format of `ARDSMAICR::data_contributions`
 #' @return An html chord diagram
 #' @details
 #' Input columns for `data_contributions` should be:
@@ -14,7 +14,7 @@
 #' @examples
 #' \dontrun{
 #' if(interactive()){
-#'  contributions_chord_bystudy(data_genes)
+#'  contributions_chord_bystudy(ARDSMAICR::data_contributions)
 #'  }
 #' }
 #' @export
@@ -69,8 +69,8 @@ contributions_chord_bystudy <- function(data) {
 #' @title Contributions chord by method
 #' @description Creates an interactive html chord diagram of contributions to MAIC grouped by
 #'     method.
-#' @param data_contributions Data frame in the format of `data_contributions`
-#' @param data_study Data frame in the format of `data_study`
+#' @param data_contributions Data frame in the format of `ARDSMAICR::data_contributions`
+#' @param data_study Data frame in the format of `ARDSMAICR::data_study`
 #' @return An html chord diagram
 #' @details
 #' Input columns for `data_contributions` should be:
@@ -102,7 +102,7 @@ contributions_chord_bystudy <- function(data) {
 #' @examples
 #' \dontrun{
 #' if(interactive()){
-#'  contributions_chord_bymethod(data_contributions, data_study)
+#'  contributions_chord_bymethod(ARDSMAICR::data_contributions, ARDSMAICR::data_study)
 #'  }
 #' }
 #' @export

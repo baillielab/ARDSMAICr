@@ -21,7 +21,7 @@ database.
 \examples{
 \dontrun{
 if(interactive()){
- gp_enrichment(data_genes, p_threshold = 0.001, source = c("REAC", "WP")) |>
+ gp_enrichment(ARDSMAICR::data_genes, p_threshold = 0.001, source = c("REAC", "WP")) |>
  gp_count_pathways()
  }
 }

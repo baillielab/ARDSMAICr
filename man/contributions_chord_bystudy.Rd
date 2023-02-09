@@ -7,7 +7,7 @@
 contributions_chord_bystudy(data)
 }
 \arguments{
-\item{data}{Data frame in the format of \code{data_contributions}}
+\item{data}{Data frame in the format of \code{ARDSMAICR::data_contributions}}
 }
 \value{
 An html chord diagram
@@ -29,7 +29,7 @@ contributes to the overall MAIC score - dbl
 \examples{
 \dontrun{
 if(interactive()){
- contributions_chord_bystudy(data_genes)
+ contributions_chord_bystudy(ARDSMAICR::data_contributions)
  }
 }
 }

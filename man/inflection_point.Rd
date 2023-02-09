@@ -7,7 +7,7 @@
 inflection_point(data)
 }
 \arguments{
-\item{data}{Data frame in the format of \code{data_genes}}
+\item{data}{Data frame in the format of \code{ARDSMAICR::data_genes}}
 }
 \value{
 A list of values
@@ -30,7 +30,7 @@ Input columns for \code{data_genes} should be (this is the standard output of th
 \examples{
 \dontrun{
 if(interactive()){
- inflection_point(data_genes)
+ inflection_point(ARDSMAICR::data_genes)
  }
 }
 }

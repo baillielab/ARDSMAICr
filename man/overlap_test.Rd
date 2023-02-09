@@ -7,7 +7,7 @@
 overlap_test(data_genes, overlap_genes, n_data_genes = "All", universe = 19220)
 }
 \arguments{
-\item{data_genes}{Data frame in the format of \code{data_genes}}
+\item{data_genes}{Data frame in the format of \code{ARDSMAICR::data_genes}}
 
 \item{overlap_genes}{Data frame where the first column lists gene symbols}
 
@@ -41,7 +41,7 @@ Input columns for \code{data_genes} should be (this is the standard output of th
 \examples{
 \dontrun{
 if(interactive()){
- overlap_test(data_genes, data_biolitlmine, n_data_genes = 300, universe = "FANTOM_L")
+ overlap_test(ARDSMAICR::data_genes, ARDSMAICR::data_biolitlmine, n_data_genes = 300, universe = "FANTOM_L")
  }
 }
 }

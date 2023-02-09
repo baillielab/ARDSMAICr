@@ -7,7 +7,7 @@
 count_lists(data)
 }
 \arguments{
-\item{data}{Data frame in the format of \code{data_study}}
+\item{data}{Data frame in the format of \code{ARDSMAICR::data_study}}
 }
 \value{
 An integer

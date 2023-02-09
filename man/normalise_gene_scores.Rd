@@ -7,7 +7,7 @@
 normalise_gene_scores(data)
 }
 \arguments{
-\item{data}{Data frame in the format of \code{data_genes}}
+\item{data}{Data frame in the format of \code{ARDSMAICR::data_genes}}
 }
 \value{
 A data frame
@@ -30,7 +30,7 @@ Input columns for \code{data_genes} should be (this is the standard output of th
 \examples{
 \dontrun{
 if(interactive()){
- normalised_info_content_matrix <- data_genes |>
+ normalised_info_content_matrix <- ARDSMAICR::data_genes |>
  normalise_gene_scores() |>
  inf_adj_matrix(unique = FALSE)
  }

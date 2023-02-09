@@ -11,7 +11,7 @@ gp_enrichment(
 )
 }
 \arguments{
-\item{data}{Data frame in the format of \code{data_genes}}
+\item{data}{Data frame in the format of \code{ARDSMAICR::data_genes}}
 
 \item{p_threshold}{Threshold P value -- Default = 0.01}
 
@@ -47,7 +47,7 @@ Databases:
 \examples{
 \dontrun{
 if(interactive()){
- gp_enrichment(data_genes, p_threshold = 0.001, source = c("REAC", "WP"))
+ gp_enrichment(ARDSMAICR::data_genes, p_threshold = 0.001, source = c("REAC", "WP"))
  }
 }
 }

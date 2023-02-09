@@ -1,11 +1,11 @@
 #' @title MAIC overlap table
 #' @description Creates an interactive html table of genes found in common between MAIC and a
 #'     and a user supplied list of genes.
-#' @param data_genes Data frame in the format of `data_genes`
+#' @param data_genes Data frame in the format of `ARDSMAICR::data_genes`
 #' @param data_alternative Data frame where the only column is gene symbols and is titled gene,
-#'     unless is `data_biolitmine`
+#'     unless is `ARDSMAICR::data_biolitmine`
 #' @param biolitmine Boolean -- Default = TRUE -- if comparing BioLitMine result using
-#'     `data_biolitmine`
+#'     `ARDSMAICR::data_biolitmine`
 #' @return An html table
 #' @details
 #' Primary use is to compare ARDS MAIC with the results of a BioLitMine search for the MeSH
@@ -24,7 +24,7 @@
 #' @examples
 #' \dontrun{
 #' if(interactive()){
-#'  overlap_table(data_genes, data_covidmaic, biolitmine = FALSE)
+#'  overlap_tableARDSMAICR::(data_genes, ARDSMAICR::data_covidmaic, biolitmine = FALSE)
 #'  }
 #' }
 #' @export
@@ -148,11 +148,11 @@ overlap_table <- function(data_genes, data_alternative, biolitmine = TRUE) {
 #' @title MAIC unidentified table
 #' @description Create an interactive html table of genes found in an alternative list but not in
 #'     MAIC.
-#' @param data_genes Data frame in the format of `data_genes`
+#' @param data_genes Data frame in the format of `ARDSMAICR::data_genes`
 #' @param data_alternative Data frame where the only column is gene symbols and titled gene,
-#'     unless is `data_biolitmine`
+#'     unless is `ARDSMAICR::data_biolitmine`
 #' @param biolitmine Boolean -- Default = TRUE -- if comparing BioLitMine result using
-#'     `data_biolitmine`
+#'     `ARDSMAICR::data_biolitmine`
 #' @return An html table (biolitmine) or a tibble (other source)
 #' @details
 #' Primary use is to compare ARDS MAIC with the results of a BioLitMine search for the MeSH
@@ -171,7 +171,7 @@ overlap_table <- function(data_genes, data_alternative, biolitmine = TRUE) {
 #' @examples
 #' \dontrun{
 #' if(interactive()){
-#'  overlap_unidentified_table(data_genes, data_biolitmine, biolitmine = TRUE)
+#'  overlap_unidentified_table(ARDSMAICR::data_genes, ARDSMAICR::data_biolitmine, biolitmine = TRUE)
 #'  }
 #' }
 #' @export
@@ -265,11 +265,11 @@ overlap_unidentified_table <- function(data_genes, data_alternative, biolitmine 
 #' @title MAIC overlap Venn diagram
 #' @description Creates a Venn diagram of the overlap between MAIC genes and genes found in an
 #'     alternative list.
-#' @param data_genes Data frame in the format of `data_genes`
+#' @param data_genes Data frame in the format of `ARDSMAICR::data_genes`
 #' @param data_alternative Data frame where the only column is gene symbols and titled gene,
-#'     unless is `data_biolitmine`
+#'     unless is `ARDSMAICR::data_biolitmine`
 #' @param biolitmine Boolean -- Default = TRUE -- if comparing BioLitMine result using
-#'     `data_biolitmine`
+#'     `ARDSMAICR::data_biolitmine`
 #' @return Venn diagram
 #' @details
 #' Input columns for `data_genes` should be (this is the standard output of the MAIC algorithm):
@@ -283,7 +283,7 @@ overlap_unidentified_table <- function(data_genes, data_alternative, biolitmine 
 #' @examples
 #' \dontrun{
 #' if(interactive()){
-#'  overlap_venn(data_genes, data_biolitmine, biolitmine = TRUE)
+#'  overlap_venn(ARDSMAICR::data_genes, ARDSMAICR::data_biolitmine, biolitmine = TRUE)
 #'  }
 #' }
 #' @export
@@ -369,7 +369,7 @@ overlap_venn <- function(data_genes, data_alternative, biolitmine = TRUE) {
 #' @title Count MAIC and alternative gene list overlap
 #' @description Returns the total number of genes identified in the alternative list, the number of
 #' these genes found in MAIC, and the percentage of alternative list genes found in MAIC.
-#' @param data_genes Data frame in the format of `data_genes`
+#' @param data_genes Data frame in the format of `ARDSMAICR::data_genes`
 #' @param data_alternative Data frame where the first column is a gene list
 #' @return A list
 #' @details
@@ -384,7 +384,7 @@ overlap_venn <- function(data_genes, data_alternative, biolitmine = TRUE) {
 #' @examples
 #' \dontrun{
 #' if(interactive()){
-#'  overlap_count(data_genes, data_biolitmine)
+#'  overlap_count(ARDSMAICR::data_genes, ARDSMAICR::data_biolitmine)
 #'  }
 #' }
 #' @export

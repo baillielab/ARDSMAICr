@@ -7,7 +7,7 @@
 genes_per_list(data)
 }
 \arguments{
-\item{data}{Data frame in the format of \code{data_genes}}
+\item{data}{Data frame in the format of \code{ARDSMAICR::data_genes}}
 }
 \value{
 A tibble
