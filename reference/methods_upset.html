@@ -48,7 +48,7 @@
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>data</dt>
-<dd><p>Data frame in the format of <code>data_genes</code></p></dd>
+<dd><p>Data frame in the format of <code><a href="data_genes.html">ARDSMAICR::data_genes</a></code></p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -57,12 +57,37 @@
 
 <p>An upset plot</p>
     </div>
+    <div class="section level2">
+    <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
+    <p>Input columns for <code>data_study</code> should be:</p><ul><li><p><code>id</code> - Integer 1 to n studies - dbl</p></li>
+<li><p><code>First_author</code> - First author family name - chr</p></li>
+<li><p><code>Article_title</code> - Article title - chr</p></li>
+<li><p><code>Year</code> - Year of publication - dbl</p></li>
+<li><p><code>Journal</code> - Journal - chr</p></li>
+<li><p><code>DOI</code> - Digital object identifier - dbl</p></li>
+<li><p><code>PMID</code> - PubMed ID - dbl</p></li>
+<li><p><code>uID</code> - Unique ID. Format is <code>First_Author Year PMID</code> - chr</p></li>
+<li><p><code>Method</code> - Study method e.g., "GWAS" - chr</p></li>
+<li><p><code>Technology</code> - Technology used e.g., "Microarray" - chr</p></li>
+<li><p><code>Tissue</code> - Tissue type sampled e.g., "BALF" - chr</p></li>
+<li><p><code>Cell</code> - Cell type sampled e.g., "Neutrophils" - chr</p></li>
+<li><p><code>Focus</code> Study focus e.g., "Susceptibility" - chr</p></li>
+<li><p><code>ARDS_pts</code> - Total number of patients with ARDS included in study - dbl</p></li>
+<li><p><code>ARDS_definition</code> - Definition of ARDS used in study - chr</p></li>
+<li><p><code>List_available</code> - Was the gene list associated with the study retrievable - lgl</p></li>
+</ul><p>Input columns for <code>data_genes</code> should be (this is the standard output of the MAIC algorithm):</p><ul><li><p><code>gene</code> - HGNC gene symbol - chr</p></li>
+<li><p>1...</p></li>
+<li><p><code>uID</code> - Study unique identifier. Column contains study specific gene score - dbl</p></li>
+<li><p>n...</p></li>
+<li><p><code>maic_score</code> - MAIC score for gene - dbl</p></li>
+<li><p><code>contributors</code> - Studies contributing to MAIC score by method - chr</p></li>
+</ul></div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
 <span class="r-in"><span><span class="kw">if</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/interactive.html" class="external-link">interactive</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span><span class="op">{</span></span></span>
-<span class="r-in"><span> <span class="fu">methods_upset</span><span class="op">(</span><span class="va">data_genes</span><span class="op">)</span></span></span>
+<span class="r-in"><span> <span class="fu">methods_upset</span><span class="op">(</span><span class="fu">ARDSMAICR</span><span class="fu">::</span><span class="va"><a href="data_genes.html">data_genes</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span> <span class="op">}</span></span></span>
 <span class="r-in"><span><span class="op">}</span></span></span>
 </code></pre></div>
