@@ -33,6 +33,23 @@ test_that("Correct shared information content without unique genes returned", {
   expect_equal(result_D, 0)
 })
 
+### test that correct type returned when as_list = FALSE
+
+test_that("Correct shared information content without unique genes returned", {
+  data <- readRDS(test_path("testdata", "adj_check.rds"))
+  result <- suppressWarnings(inf_adj_matrix(data))
+  expect_type(result, "double")
+})
+
+### test that correct type returned when as_list = TRUE
+
+test_that("Correct shared information content without unique genes returned", {
+  data <- readRDS(test_path("testdata", "adj_check.rds"))
+  result <- suppressWarnings(inf_adj_matrix(data, as_list = TRUE))
+  expect_type(result, "list")
+})
+
+
 ## normalise_gene_scores()
 
 test_that("Correct normalise values returned returned", {

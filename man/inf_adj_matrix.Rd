@@ -4,7 +4,7 @@
 \alias{inf_adj_matrix}
 \title{Information adjacency matrix}
 \usage{
-inf_adj_matrix(data, contribution = FALSE, unique = TRUE)
+inf_adj_matrix(data, contribution = FALSE, unique = TRUE, as_list = FALSE)
 }
 \arguments{
 \item{data}{Data frame in the format of \code{data_genes}}
@@ -12,6 +12,8 @@ inf_adj_matrix(data, contribution = FALSE, unique = TRUE)
 \item{contribution}{Return the information contribution -- Default = FALSE}
 
 \item{unique}{Include information for genes uniquely identified by a study -- Default = TRUE}
+
+\item{as_list}{Option to return an adjacency list -- Default = FALSE}
 }
 \value{
 A matrix with the dimensions n studies x n studies. Where the cells represent the summed

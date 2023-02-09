@@ -4,6 +4,7 @@
 #' @param data Data frame in the format of `data_genes`
 #' @param contribution Return the information contribution -- Default = FALSE
 #' @param unique Include information for genes uniquely identified by a study -- Default = TRUE
+#' @param as_list Option to return an adjacency list -- Default = FALSE
 #' @return A matrix with the dimensions n studies x n studies. Where the cells represent the summed
 #'     scores of genes shared between studies. Direction is maintained, columns to rows represents
 #'     the information in the column shared with the row. The return may be specified as the
@@ -34,13 +35,14 @@
 #' @importFrom rlang sym
 #' @importFrom tidyr spread
 
-inf_adj_matrix <- function(data, contribution = FALSE, unique = TRUE) {
+inf_adj_matrix <- function(data, contribution = FALSE, unique = TRUE, as_list = FALSE) {
 
   ## set contribution behaviour - if TRUE will retain only the gene scores where the study is a
   ## contributor to the maic score. if FALSE will retain all gene scores i.e, the information
   ## content.
 
   if (contribution == TRUE) {
+
     df <- data |>
       tidyr::separate(.data$contributors, c("study_1", "study_2", "study_3"), "\\,", fill = "right") |>
       dplyr::mutate_at(c("study_1", "study_2", "study_3"), ~ stringr::str_remove(.x, "^(.*?:)")) |>
@@ -53,11 +55,14 @@ inf_adj_matrix <- function(data, contribution = FALSE, unique = TRUE) {
       dplyr::ungroup() |>
       dplyr::select(-c(.data$study_1, .data$study_2, .data$study_3)) |>
       tibble::column_to_rownames(var = "gene")
+
   } else {
+
     df <- data |>
       dplyr::select(-c(.data$maic_score, .data$contributors)) |>
       dplyr::mutate(across(where(is.numeric), ~ dplyr::na_if(., 0))) |>
       tibble::column_to_rownames(var = "gene")
+
   }
 
   ## directional sum of all pairwise combinations
@@ -79,6 +84,7 @@ inf_adj_matrix <- function(data, contribution = FALSE, unique = TRUE) {
   ## by a single study. if false will remove this self-referencing information.
 
   if (unique == TRUE) {
+
     find_col <- function(df, col) {
       df_subset <- df[!is.na(df[, col]) & rowSums(!is.na(df[, names(df) != col])) == 0, ]
       result_col <- df_subset[, col]
@@ -96,17 +102,34 @@ inf_adj_matrix <- function(data, contribution = FALSE, unique = TRUE) {
     output <- tidyr::spread(overall, .data$From, .data$Value) |>
       tibble::column_to_rownames(var = "To") |>
       as.matrix()
+
   } else {
+
     overall <- col_sums_df
 
     output <- tidyr::spread(overall, .data$From, .data$Value) |>
       tibble::column_to_rownames(var = "To") |>
       as.matrix()
+
   }
 
   output[is.na(output)] <- 0
 
-  return(output)
+  ## option for adjacency list
+
+  if (as_list == TRUE){
+
+    adj_list <- output |>
+      tibble::as_tibble(rownames = "To") |>
+      tidyr::gather(key = "From", value = "Value", -.data$To)
+
+    return(adj_list)
+
+  } else {
+
+    return(output)
+
+  }
 }
 
 #' @title Normalise gene scores
