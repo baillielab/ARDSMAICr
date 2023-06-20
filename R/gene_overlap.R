@@ -1,13 +1,13 @@
-#' @title Compute measures of gene overlap
-#' @description Compute measures of gene overlap between MAIC genes (or a subset) and a user defined
-#'     list of genes.
+#' @title Compute hypergeometric test P value of gene overlap
+#' @description Compute hypergeometric test P value of overlap between MAIC genes (or a subset) and a user defined
+#'     list of genes If P < user-defined threshold, then a significant overlap can be assumed.
 #' @param data_genes Data frame in the format of `ARDSMAICR::data_genes`
 #' @param overlap_genes Data frame where the first column lists gene symbols
 #' @param n_data_genes Number of MAIC genes to include -- Default = "All" -- chr
 #' @param universe Size of gene universe. Either a user defined integer or "HGNC" = All protein
 #'     coding genes by HGNC, "FANTOM_L" = genes expressed in lung in FANTOM5, or "FANTOM_S" =
 #'     genes expressed in spleen in FANTOM5 -- Default: "HGNC" -- chr
-#' @return OUTPUT_DESCRIPTION
+#' @return Hypergeometric test P value
 #' @details
 #' Input columns for `data_genes` should be (this is the standard output of the MAIC algorithm):
 #' * `gene` - HGNC gene symbol - chr
@@ -32,7 +32,8 @@
 #' @rdname overlap_test
 #'
 #' @import dplyr
-#' @import GeneOverlap
+#' @importFrom stats phyper
+
 
 overlap_test <- function(data_genes, overlap_genes, n_data_genes = "All", universe = 19220) {
   ## Set behaviour for number of maic genes to include
@@ -69,23 +70,26 @@ overlap_test <- function(data_genes, overlap_genes, n_data_genes = "All", univer
 
   ## Extract gene lists
 
-  data_genes_slice <- data_genes_slice$gene
+  data_genes_slice <- data_genes_slice |>
+    dplyr::pull(.data$gene)
 
   data_overlap <- overlap_genes |>
     dplyr::select(, 1) %>%
     dplyr::pull()
 
-  ## Create gene overlap object
+  ## Find overlap
 
-  go_obj <- GeneOverlap::newGeneOverlap(
-    data_genes_slice,
-    data_overlap,
-    genome.size = universe
-  )
+  overlap <- intersect(data_genes_slice, data_overlap)
 
-  ## Compute gene overlap
+  len_overlap <- length(overlap)
 
-  go_obj_res <- GeneOverlap::testGeneOverlap(go_obj)
+  ## hypergeometric test
 
-  return(go_obj_res)
+  len_data_genes <- length(data_genes_slice)
+
+  len_data_overlap <- length(data_overlap)
+
+  hyperp_p <- stats::phyper(len_overlap-1, len_data_overlap, universe-len_data_overlap, len_data_genes, lower.tail = FALSE)
+
+  return(hyperp_p)
 }

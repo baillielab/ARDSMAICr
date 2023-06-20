@@ -2,7 +2,7 @@
 % Please edit documentation in R/gene_overlap.R
 \name{overlap_test}
 \alias{overlap_test}
-\title{Compute measures of gene overlap}
+\title{Compute hypergeometric test P value of gene overlap}
 \usage{
 overlap_test(data_genes, overlap_genes, n_data_genes = "All", universe = 19220)
 }
@@ -18,11 +18,11 @@ coding genes by HGNC, "FANTOM_L" = genes expressed in lung in FANTOM5, or "FANTO
 genes expressed in spleen in FANTOM5 -- Default: "HGNC" -- chr}
 }
 \value{
-OUTPUT_DESCRIPTION
+Hypergeometric test P value
 }
 \description{
-Compute measures of gene overlap between MAIC genes (or a subset) and a user defined
-list of genes.
+Compute hypergeometric test P value of overlap between MAIC genes (or a subset) and a user defined
+list of genes If P < user-defined threshold, then a significant overlap can be assumed.
 }
 \details{
 Input columns for \code{data_genes} should be (this is the standard output of the MAIC algorithm):
@@ -41,7 +41,8 @@ Input columns for \code{data_genes} should be (this is the standard output of th
 \examples{
 \dontrun{
 if(interactive()){
- overlap_test(ARDSMAICR::data_genes, ARDSMAICR::data_biolitlmine, n_data_genes = 300, universe = "FANTOM_L")
+ overlap_test(ARDSMAICR::data_genes, ARDSMAICR::data_biolitlmine,
+   n_data_genes = 300, universe = "FANTOM_L")
  }
 }
 }
