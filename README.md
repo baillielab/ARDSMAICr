@@ -75,10 +75,10 @@ releases will match regular updates of the systematic review.
 
 These data are contained in `data_genes`. It has the following format:
 
-| gene   | study_1\_id | study_2\_id | study_n\_id | maic_score | contributors                                |
-|--------|-------------|-------------|-------------|------------|---------------------------------------------|
-| GENE_A | 0.000       | 1.234       | 0.000       | 1.234      | METHOD_1: study_2\_id                       |
-| GENE_B | 1.345       | 1.234       | 0.000       | 1.456      | METHOD_1: study_2\_id, METHOD_2: study_id_1 |
+| gene   | study_1_id | study_2_id | study_n_id | maic_score | contributors                               |
+|--------|------------|------------|------------|------------|--------------------------------------------|
+| GENE_A | 0.000      | 1.234      | 0.000      | 1.234      | METHOD_1: study_2_id                       |
+| GENE_B | 1.345      | 1.234      | 0.000      | 1.456      | METHOD_1: study_2_id, METHOD_2: study_id_1 |
 
 Additional data are:
 
