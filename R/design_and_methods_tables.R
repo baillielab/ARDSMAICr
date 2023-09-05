@@ -1,4 +1,4 @@
-#' @title Table of study designs
+#' @title Create a table of study designs
 #' @description Creates an interactive table summarising the designs of studies included in the
 #'     systematic review.
 #' @param data Data frame in the format of `ARDSMAICR::data_study`
@@ -74,7 +74,7 @@ design_table <- function(data) {
   return(table)
 }
 
-#' @title Table of study methods
+#' @title Create a table of study methods
 #' @description Creates an interactive table summarising the methods of studies included in the
 #'     systematic review.
 #' @param data Data frame in the format of `ARDSMAICR::data_study`

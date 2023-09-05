@@ -3,7 +3,7 @@
 \docType{data}
 \name{data_genes}
 \alias{data_genes}
-\title{ARDS MAIC Update 1.0.0 overall maic results}
+\title{Overall ARDS MAIC results - ARDS MAIC Update 1.0.0}
 \format{
 \subsection{\code{data_genes}}{
 
@@ -22,6 +22,6 @@ Own
 data_genes
 }
 \description{
-MAIC output for all gene lists
+ARDS MAIC output for all gene lists
 }
 \keyword{datasets}

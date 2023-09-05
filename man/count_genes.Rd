@@ -2,7 +2,7 @@
 % Please edit documentation in R/study_methods_and_gene_support.R
 \name{count_genes}
 \alias{count_genes}
-\title{Count genes}
+\title{Count total number of genes}
 \usage{
 count_genes(data)
 }

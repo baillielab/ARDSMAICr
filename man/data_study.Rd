@@ -3,7 +3,7 @@
 \docType{data}
 \name{data_study}
 \alias{data_study}
-\title{ARDS MAIC Update 1.0.0 study metadata}
+\title{Study metadata - ARDS MAIC Update 1.0.0}
 \format{
 \subsection{\code{data_study}}{
 
@@ -36,6 +36,6 @@ Own
 data_study
 }
 \description{
-A description of each gene list included in the systematic review and MAIC
+A description of each gene list included in the systematic review and ARDS MAIC
 }
 \keyword{datasets}

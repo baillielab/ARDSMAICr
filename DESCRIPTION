@@ -11,29 +11,23 @@ URL: https://jonathanemillar.github.io/ARDSMAICr/
 Depends: 
     R (>= 4.0)
 Imports: 
-    chorddiag (>= 0.1.3),
-    ComplexUpset (>= 1.3.3),
-    dplyr (>= 1.0.10),
-    forcats (>= 0.5.2),
-    ggbeeswarm (>= 0.7.1),
-    ggplot2 (>= 3.4.0),
-    ggpointdensity (>= 0.1.0),
-    ggpubr (>= 0.5.0),
-    ggvenn (>= 0.1.9),
-    gprofiler2 (>= 0.2.1),
-    htmltools (>= 0.5.4),
-    inflection (>= 1.3.6),
-    janitor (>= 2.1.0),
-    reactable (>= 0.4.1),
-    reactablefmtr (>= 2.0.0),
-    rlang (>= 1.0.6),
-    stringr (>= 1.5.0),
-    tibble (>= 3.1.8),
-    tidyr (>= 1.2.1),
-    tidyselect (>= 1.2.0),
-    viridis (>= 0.6.2)
-Remotes: 
-    github::mattflor/chorddiag
+    ComplexUpset (>= 1.3.3), 
+    dplyr (>= 1.0.10), 
+    forcats (>= 0.5.2), 
+    ggbeeswarm (>= 0.7.1), 
+    ggplot2 (>= 3.4.0), 
+    ggpointdensity (>= 0.1.0), 
+    ggpubr (>= 0.5.0), 
+    htmltools (>= 0.5.4), 
+    inflection (>= 1.3.6), 
+    reactable (>= 0.4.1), 
+    reactablefmtr (>= 2.0.0),  
+    rlang (>= 1.0.6), 
+    stringr (>= 1.5.0), 
+    tibble (>= 3.1.8), 
+    tidyr (>= 1.2.1), 
+    tidyselect (>= 1.2.0), 
+    viridis (>= 0.6.2) 
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)

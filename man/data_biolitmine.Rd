@@ -3,7 +3,7 @@
 \docType{data}
 \name{data_biolitmine}
 \alias{data_biolitmine}
-\title{ARDS MAIC Update 1.0.0 BioLitMine results}
+\title{BioLitMine results - ARDS MAIC Update 1.0.0}
 \format{
 \subsection{\code{data_biolitmine}}{
 

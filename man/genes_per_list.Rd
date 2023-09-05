@@ -2,7 +2,7 @@
 % Please edit documentation in R/study_methods_and_gene_support.R
 \name{genes_per_list}
 \alias{genes_per_list}
-\title{Count genes by gene list}
+\title{Count number of genes by gene list}
 \usage{
 genes_per_list(data)
 }
@@ -13,8 +13,7 @@ genes_per_list(data)
 A tibble
 }
 \description{
-Returns the number of unique genes or SNPs identified in each gene list (the most
-concise categorisation of lists).
+Returns the number of unique genes or SNPs identified in each gene list.
 }
 \details{
 Input columns for \code{data_genes} should be (this is the standard output of the MAIC algorithm):

@@ -96,11 +96,9 @@ Additional data are:
 Several groups of functions useful in the analysis of the MAIC results are included.
 They fall into the following broad families:
 
--   Study summaries.
--   MAIC summaries.
--   MAIC genes.
--   MAIC contributions.
--   Functional enrichment.
--   Gene overlap.
+-   Summary tables
+-   Helper functions - counts, genes, lists, methods and categories
+-   Gene prioritisation
+-   Information content and contribution
 
 The majority of these functions can be applied to the standard [MAIC](https://github.com/baillielab/maic) output of any analysis.

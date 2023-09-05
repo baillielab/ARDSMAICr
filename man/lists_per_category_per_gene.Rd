@@ -2,7 +2,7 @@
 % Please edit documentation in R/study_methods_and_gene_support.R
 \name{lists_per_category_per_gene}
 \alias{lists_per_category_per_gene}
-\title{Count gene lists by category by gene}
+\title{Count number of gene lists by category by gene}
 \usage{
 lists_per_category_per_gene(data_study, data_genes)
 }

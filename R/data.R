@@ -1,6 +1,6 @@
-#' ARDS MAIC Update 1.0.0 study metadata
+#' Study metadata - ARDS MAIC Update 1.0.0
 #'
-#' A description of each gene list included in the systematic review and MAIC
+#' A description of each gene list included in the systematic review and ARDS MAIC
 #'
 #'
 #' @format ## `data_study`
@@ -27,9 +27,9 @@
 #' @source Own
 "data_study"
 
-#' ARDS MAIC Update 1.0.0 overall maic results
+#' Overall ARDS MAIC results - ARDS MAIC Update 1.0.0
 #'
-#' MAIC output for all gene lists
+#' ARDS MAIC output for all gene lists
 #'
 #'
 #' @format ## `data_genes`
@@ -42,9 +42,9 @@
 #' @source Own
 "data_genes"
 
-#' ARDS MAIC Update 1.0.0 overall maic contributions
+#' Overall gene list contributions - ARDS MAIC Update 1.0.0
 #'
-#' Study contributions
+#' Gene list information content and information contribution
 #'
 #'
 #' @format ## `data_contributions`
@@ -60,7 +60,7 @@
 #' @source Own
 "data_contributions"
 
-#' ARDS MAIC Update 1.0.0 BioLitMine results
+#' BioLitMine results - ARDS MAIC Update 1.0.0
 #'
 #' Genes associated with the MeSH heading 'Respiratory Distress syndrome, Acute' obtained on the
 #'     4th January, 2023
@@ -77,9 +77,9 @@
 #' @source \url{https://www.flyrnai.org/tools/biolitmine/web/}
 "data_biolitmine"
 
-#' ARDS MAIC Update 1.0.0 SARS-CoV-2 MAIC genes
+#' SARS-CoV-2 MAIC genes - ARDS MAIC Update 1.0.0
 #'
-#' Genes included in a MAIC of SARS-CoV-2 whole-genome studies
+#' Genes included in a MAIC of SARS-CoV-2 genome-wide studies
 #'
 #'
 #' @format ## `data_covidmaic`

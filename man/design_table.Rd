@@ -2,7 +2,7 @@
 % Please edit documentation in R/design_and_methods_tables.R
 \name{design_table}
 \alias{design_table}
-\title{Table of study designs}
+\title{Create a table of study designs}
 \usage{
 design_table(data)
 }

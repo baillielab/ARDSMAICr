@@ -2,7 +2,7 @@
 % Please edit documentation in R/study_methods_and_gene_support.R
 \name{count_lists}
 \alias{count_lists}
-\title{Count gene lists}
+\title{Count total number of gene lists}
 \usage{
 count_lists(data)
 }

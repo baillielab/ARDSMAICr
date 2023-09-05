@@ -2,7 +2,7 @@
 % Please edit documentation in R/study_methods_and_gene_support.R
 \name{methods_per_gene}
 \alias{methods_per_gene}
-\title{Count methods by gene}
+\title{Count number of methods supporting each gene}
 \usage{
 methods_per_gene(data)
 }

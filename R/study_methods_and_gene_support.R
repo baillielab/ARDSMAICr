@@ -1,4 +1,4 @@
-#' @title Count genes
+#' @title Count total number of genes
 #' @description Returns the total number of unique genes or SNPs included in MAIC.
 #' @param data Data frame in the format of `ARDSMAICR::data_genes`
 #' @return An integer
@@ -33,7 +33,7 @@ count_genes <- function(data) {
 
 
 
-#' @title Count gene lists
+#' @title Count total number of gene lists
 #' @description Returns the total number of gene lists included in MAIC.
 #' @param data Data frame in the format of `ARDSMAICR::data_study`
 #' @return An integer
@@ -95,9 +95,8 @@ count_lists <- function(data) {
 
 
 
-#' @title Count genes by gene list
-#' @description Returns the number of unique genes or SNPs identified in each gene list (the most
-#'     concise categorisation of lists).
+#' @title Count number of genes by gene list
+#' @description Returns the number of unique genes or SNPs identified in each gene list.
 #' @param data Data frame in the format of `ARDSMAICR::data_genes`
 #' @return A tibble
 #' @details
@@ -139,7 +138,7 @@ genes_per_list <- function(data) {
 
 
 
-#' @title Count genes by method type
+#' @title Count number of genes by method
 #' @description Returns the number of unique genes or SNPs identified by each method (the most
 #'     concise categorisation of lists).
 #' @param data_study Data frame in the format of `ARDSMAICR::data_study`
@@ -223,7 +222,7 @@ genes_per_method <- function(data_study, data_genes) {
 
 
 
-#' @title genes_per_category
+#' @title Count number of genes by category
 #' @description Returns the number of unique genes or SNPs identified by each category defined in
 #'     MAIC.
 #' @param data_study Data frame in the format of `ARDSMAICR::data_study`
@@ -313,7 +312,7 @@ genes_per_category <- function(data_study, data_genes) {
 
 
 
-#' @title Count gene lists by gene
+#' @title Count number of gene lists supporting each gene
 #' @description For each unique gene or SNP returns the number of lists that gene or SNP is
 #'     found in.
 #' @param data Data frame in the format of `ARDSMAICR::data_genes`
@@ -356,7 +355,7 @@ lists_per_gene <- function(data) {
 
 
 
-#' @title Count gene lists by method
+#' @title Count number of gene lists by method
 #' @description Returns the total number of gene lists included in MAIC grouped by
 #'     study method (the most concise categorisation of lists).
 #' @param data Data frame in the format of `ARDSMAICR::data_study`
@@ -416,7 +415,7 @@ lists_per_method <- function(data) {
 
 
 
-#' @title Count gene lists by method by gene
+#' @title Count number of gene lists by method by gene
 #' @description Returns the number of lists each unique gene or SNP is found in stratified by
 #'     method (the most concise categorisation of lists).
 #' @param data_study Data frame in the format of `ARDSMAICR::data_study`
@@ -498,9 +497,9 @@ lists_per_method_per_gene <- function(data_study, data_genes) {
 
 
 
-#' @title Count gene lists by category
+#' @title Count number of gene lists by category
 #' @description Returns the total number of gene lists included in MAIC grouped by
-#'     study category.
+#'     category.
 #' @param data Data frame in the format of `ARDSMAICR::data_study`
 #' @return A tibble
 #' @details
@@ -563,7 +562,7 @@ lists_per_category <- function(data) {
 
 
 
-#' @title Count gene lists by category by gene
+#' @title Count number of gene lists by category by gene
 #' @description Returns the number of lists each unique gene or SNP is found in stratified by
 #'    category.
 #' @param data_study Data frame in the format of `ARDSMAICR::data_study`
@@ -653,7 +652,7 @@ lists_per_category_per_gene <- function(data_study, data_genes) {
 
 
 
-#' @title Count methods by gene
+#' @title Count number of methods supporting each gene
 #' @description Returns the number of methods (the most concise categorisation of lists) supporting
 #'     each unique gene or SNP.
 #' @param data Data frame in the format of `ARDSMAICR::data_genes`
@@ -720,7 +719,7 @@ methods_per_gene <- function(data) {
 
 
 
-#' @title Count categories per gene
+#' @title Count number of categories supporting each gene
 #' @description Returns the number of categories supporting each unique gene or SNP.
 #' @param data_study Data frame in the format of `ARDSMAICR::data_study`
 #' @param data_genes Data frame in the format of `ARDSMAICR::data_genes`

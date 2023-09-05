@@ -2,7 +2,7 @@
 % Please edit documentation in R/study_methods_and_gene_support.R
 \name{genes_per_category}
 \alias{genes_per_category}
-\title{genes_per_category}
+\title{Count number of genes by category}
 \usage{
 genes_per_category(data_study, data_genes)
 }

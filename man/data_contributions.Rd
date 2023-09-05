@@ -3,7 +3,7 @@
 \docType{data}
 \name{data_contributions}
 \alias{data_contributions}
-\title{ARDS MAIC Update 1.0.0 overall maic contributions}
+\title{Overall gene list contributions - ARDS MAIC Update 1.0.0}
 \format{
 \subsection{\code{data_contributions}}{
 
@@ -25,6 +25,6 @@ Own
 data_contributions
 }
 \description{
-Study contributions
+Gene list information content and information contribution
 }
 \keyword{datasets}

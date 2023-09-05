@@ -3,7 +3,7 @@
 \docType{data}
 \name{data_covidmaic}
 \alias{data_covidmaic}
-\title{ARDS MAIC Update 1.0.0 SARS-CoV-2 MAIC genes}
+\title{SARS-CoV-2 MAIC genes - ARDS MAIC Update 1.0.0}
 \format{
 \subsection{\code{data_covidmaic}}{
 
@@ -21,6 +21,6 @@ A data frame with 5418 rows and 1 column:
 data_covidmaic
 }
 \description{
-Genes included in a MAIC of SARS-CoV-2 whole-genome studies
+Genes included in a MAIC of SARS-CoV-2 genome-wide studies
 }
 \keyword{datasets}

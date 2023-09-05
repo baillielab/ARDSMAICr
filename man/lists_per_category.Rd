@@ -2,7 +2,7 @@
 % Please edit documentation in R/study_methods_and_gene_support.R
 \name{lists_per_category}
 \alias{lists_per_category}
-\title{Count gene lists by category}
+\title{Count number of gene lists by category}
 \usage{
 lists_per_category(data)
 }
@@ -14,7 +14,7 @@ A tibble
 }
 \description{
 Returns the total number of gene lists included in MAIC grouped by
-study category.
+category.
 }
 \details{
 Input columns for \code{data_study} should be:

@@ -8,59 +8,50 @@ template:
   bootstrap: 5
 
 reference:
-- title: "Data"
+- title: "Datasets"
   contents:
   - data_study
   - data_genes
   - data_contributions
   - data_biolitmine
   - data_covidmaic
-- title: "Study summaries"
+- title: "Summary tables"
   contents:
   - design_table
   - methods_table
-- title: "MAIC summaries"
+  - gene_table
+- title: "Helper functions - counts"
   contents:
   - count_genes
   - count_lists
+- title: "Helper functions - genes"
+  contents:
   - genes_per_list
   - genes_per_method
   - genes_per_category
+- title: "Helper functions - lists"
+  contents:
   - lists_per_gene
   - lists_per_method
   - lists_per_method_per_gene
   - lists_per_category
   - lists_per_category_per_gene
+- title: "Helper functions - methods and categories"
+  contents:
   - methods_per_gene
   - categories_per_gene
   - methods_upset
   - categories_upset
-- title: "MAIC genes"
+- title: "Gene prioritisation"
   contents:
-  - gene_table
   - inflection_point
   - inflection_point_plot
-- title: "MAIC information"
+- title: "Information content and contribution"
   contents:
   - contributions_calculation
   - inf_adj_matrix
   - normalise_gene_scores
-  - contributions_chord_bymethod
-  - contributions_chord_bystudy
-- title: "Functional enrichment"
-  contents:
-  - gp_count_pathways
-  - gp_enrichment
-  - gp_plot
-  - gp_table
-  - gp_tidy_results
-- title: "Gene overlap"
-  contents:
-  - overlap_count
-  - overlap_table
-  - overlap_test
-  - overlap_unidentified_table
-  - overlap_venn
+
 
 
 

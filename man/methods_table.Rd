@@ -2,7 +2,7 @@
 % Please edit documentation in R/design_and_methods_tables.R
 \name{methods_table}
 \alias{methods_table}
-\title{Table of study methods}
+\title{Create a table of study methods}
 \usage{
 methods_table(data)
 }
