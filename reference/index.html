@@ -35,7 +35,7 @@
     </div>
 
     <div class="section level2">
-      <h2 id="data">Data<a class="anchor" aria-label="anchor" href="#data"></a></h2>
+      <h2 id="datasets">Datasets<a class="anchor" aria-label="anchor" href="#datasets"></a></h2>
       
       
 
@@ -49,29 +49,29 @@
           
           <code><a href="data_study.html">data_study</a></code> 
         </dt>
-        <dd>ARDS MAIC Update 1.0.0 study metadata</dd>
+        <dd>Study metadata - ARDS MAIC Update 1.0.0</dd>
       </dl><dl><dt>
           
           <code><a href="data_genes.html">data_genes</a></code> 
         </dt>
-        <dd>ARDS MAIC Update 1.0.0 overall maic results</dd>
+        <dd>Overall ARDS MAIC results - ARDS MAIC Update 1.0.0</dd>
       </dl><dl><dt>
           
           <code><a href="data_contributions.html">data_contributions</a></code> 
         </dt>
-        <dd>ARDS MAIC Update 1.0.0 overall maic contributions</dd>
+        <dd>Overall gene list contributions - ARDS MAIC Update 1.0.0</dd>
       </dl><dl><dt>
           
           <code><a href="data_biolitmine.html">data_biolitmine</a></code> 
         </dt>
-        <dd>ARDS MAIC Update 1.0.0 BioLitMine results</dd>
+        <dd>BioLitMine results - ARDS MAIC Update 1.0.0</dd>
       </dl><dl><dt>
           
           <code><a href="data_covidmaic.html">data_covidmaic</a></code> 
         </dt>
-        <dd>ARDS MAIC Update 1.0.0 SARS-CoV-2 MAIC genes</dd>
+        <dd>SARS-CoV-2 MAIC genes - ARDS MAIC Update 1.0.0</dd>
       </dl></div><div class="section level2">
-      <h2 id="study-summaries">Study summaries<a class="anchor" aria-label="anchor" href="#study-summaries"></a></h2>
+      <h2 id="summary-tables">Summary tables<a class="anchor" aria-label="anchor" href="#summary-tables"></a></h2>
       
       
 
@@ -85,14 +85,19 @@
           
           <code><a href="design_table.html">design_table()</a></code> 
         </dt>
-        <dd>Table of study designs</dd>
+        <dd>Create a table of study designs</dd>
       </dl><dl><dt>
           
           <code><a href="methods_table.html">methods_table()</a></code> 
         </dt>
-        <dd>Table of study methods</dd>
+        <dd>Create a table of study methods</dd>
+      </dl><dl><dt>
+          
+          <code><a href="gene_table.html">gene_table()</a></code> 
+        </dt>
+        <dd>Table of genes</dd>
       </dl></div><div class="section level2">
-      <h2 id="maic-summaries">MAIC summaries<a class="anchor" aria-label="anchor" href="#maic-summaries"></a></h2>
+      <h2 id="helper-functions-counts">Helper functions - counts<a class="anchor" aria-label="anchor" href="#helper-functions-counts"></a></h2>
       
       
 
@@ -106,74 +111,14 @@
           
           <code><a href="count_genes.html">count_genes()</a></code> 
         </dt>
-        <dd>Count genes</dd>
+        <dd>Count total number of genes</dd>
       </dl><dl><dt>
           
           <code><a href="count_lists.html">count_lists()</a></code> 
         </dt>
-        <dd>Count gene lists</dd>
-      </dl><dl><dt>
-          
-          <code><a href="genes_per_list.html">genes_per_list()</a></code> 
-        </dt>
-        <dd>Count genes by gene list</dd>
-      </dl><dl><dt>
-          
-          <code><a href="genes_per_method.html">genes_per_method()</a></code> 
-        </dt>
-        <dd>Count genes by method type</dd>
-      </dl><dl><dt>
-          
-          <code><a href="genes_per_category.html">genes_per_category()</a></code> 
-        </dt>
-        <dd>genes_per_category</dd>
-      </dl><dl><dt>
-          
-          <code><a href="lists_per_gene.html">lists_per_gene()</a></code> 
-        </dt>
-        <dd>Count gene lists by gene</dd>
-      </dl><dl><dt>
-          
-          <code><a href="lists_per_method.html">lists_per_method()</a></code> 
-        </dt>
-        <dd>Count gene lists by method</dd>
-      </dl><dl><dt>
-          
-          <code><a href="lists_per_method_per_gene.html">lists_per_method_per_gene()</a></code> 
-        </dt>
-        <dd>Count gene lists by method by gene</dd>
-      </dl><dl><dt>
-          
-          <code><a href="lists_per_category.html">lists_per_category()</a></code> 
-        </dt>
-        <dd>Count gene lists by category</dd>
-      </dl><dl><dt>
-          
-          <code><a href="lists_per_category_per_gene.html">lists_per_category_per_gene()</a></code> 
-        </dt>
-        <dd>Count gene lists by category by gene</dd>
-      </dl><dl><dt>
-          
-          <code><a href="methods_per_gene.html">methods_per_gene()</a></code> 
-        </dt>
-        <dd>Count methods by gene</dd>
-      </dl><dl><dt>
-          
-          <code><a href="categories_per_gene.html">categories_per_gene()</a></code> 
-        </dt>
-        <dd>Count categories per gene</dd>
-      </dl><dl><dt>
-          
-          <code><a href="methods_upset.html">methods_upset()</a></code> 
-        </dt>
-        <dd>Methods upset plot</dd>
-      </dl><dl><dt>
-          
-          <code><a href="categories_upset.html">categories_upset()</a></code> 
-        </dt>
-        <dd>Categories upset plot</dd>
+        <dd>Count total number of gene lists</dd>
       </dl></div><div class="section level2">
-      <h2 id="maic-genes">MAIC genes<a class="anchor" aria-label="anchor" href="#maic-genes"></a></h2>
+      <h2 id="helper-functions-genes">Helper functions - genes<a class="anchor" aria-label="anchor" href="#helper-functions-genes"></a></h2>
       
       
 
@@ -185,10 +130,98 @@
 
       <dl><dt>
           
-          <code><a href="gene_table.html">gene_table()</a></code> 
+          <code><a href="genes_per_list.html">genes_per_list()</a></code> 
         </dt>
-        <dd>Table of genes</dd>
+        <dd>Count number of genes by gene list</dd>
       </dl><dl><dt>
+          
+          <code><a href="genes_per_method.html">genes_per_method()</a></code> 
+        </dt>
+        <dd>Count number of genes by method</dd>
+      </dl><dl><dt>
+          
+          <code><a href="genes_per_category.html">genes_per_category()</a></code> 
+        </dt>
+        <dd>Count number of genes by category</dd>
+      </dl></div><div class="section level2">
+      <h2 id="helper-functions-lists">Helper functions - lists<a class="anchor" aria-label="anchor" href="#helper-functions-lists"></a></h2>
+      
+      
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
+          
+          <code><a href="lists_per_gene.html">lists_per_gene()</a></code> 
+        </dt>
+        <dd>Count number of gene lists supporting each gene</dd>
+      </dl><dl><dt>
+          
+          <code><a href="lists_per_method.html">lists_per_method()</a></code> 
+        </dt>
+        <dd>Count number of gene lists by method</dd>
+      </dl><dl><dt>
+          
+          <code><a href="lists_per_method_per_gene.html">lists_per_method_per_gene()</a></code> 
+        </dt>
+        <dd>Count number of gene lists by method by gene</dd>
+      </dl><dl><dt>
+          
+          <code><a href="lists_per_category.html">lists_per_category()</a></code> 
+        </dt>
+        <dd>Count number of gene lists by category</dd>
+      </dl><dl><dt>
+          
+          <code><a href="lists_per_category_per_gene.html">lists_per_category_per_gene()</a></code> 
+        </dt>
+        <dd>Count number of gene lists by category by gene</dd>
+      </dl></div><div class="section level2">
+      <h2 id="helper-functions-methods-and-categories">Helper functions - methods and categories<a class="anchor" aria-label="anchor" href="#helper-functions-methods-and-categories"></a></h2>
+      
+      
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
+          
+          <code><a href="methods_per_gene.html">methods_per_gene()</a></code> 
+        </dt>
+        <dd>Count number of methods supporting each gene</dd>
+      </dl><dl><dt>
+          
+          <code><a href="categories_per_gene.html">categories_per_gene()</a></code> 
+        </dt>
+        <dd>Count number of categories supporting each gene</dd>
+      </dl><dl><dt>
+          
+          <code><a href="methods_upset.html">methods_upset()</a></code> 
+        </dt>
+        <dd>Methods upset plot</dd>
+      </dl><dl><dt>
+          
+          <code><a href="categories_upset.html">categories_upset()</a></code> 
+        </dt>
+        <dd>Categories upset plot</dd>
+      </dl></div><div class="section level2">
+      <h2 id="gene-prioritisation">Gene prioritisation<a class="anchor" aria-label="anchor" href="#gene-prioritisation"></a></h2>
+      
+      
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
           
           <code><a href="inflection_point.html">inflection_point()</a></code> 
         </dt>
@@ -199,7 +232,7 @@
         </dt>
         <dd>Plot the inflection point</dd>
       </dl></div><div class="section level2">
-      <h2 id="maic-information">MAIC information<a class="anchor" aria-label="anchor" href="#maic-information"></a></h2>
+      <h2 id="information-content-and-contribution">Information content and contribution<a class="anchor" aria-label="anchor" href="#information-content-and-contribution"></a></h2>
       
       
 
@@ -224,88 +257,6 @@
           <code><a href="normalise_gene_scores.html">normalise_gene_scores()</a></code> 
         </dt>
         <dd>Normalise gene scores</dd>
-      </dl><dl><dt>
-          
-          <code><a href="contributions_chord_bymethod.html">contributions_chord_bymethod()</a></code> 
-        </dt>
-        <dd>Contributions chord by method</dd>
-      </dl><dl><dt>
-          
-          <code><a href="contributions_chord_bystudy.html">contributions_chord_bystudy()</a></code> 
-        </dt>
-        <dd>Contributions chord by study</dd>
-      </dl></div><div class="section level2">
-      <h2 id="functional-enrichment">Functional enrichment<a class="anchor" aria-label="anchor" href="#functional-enrichment"></a></h2>
-      
-      
-
-      
-    </div><div id="" class="section level2">
-      
-      
-      
-
-      <dl><dt>
-          
-          <code><a href="gp_count_pathways.html">gp_count_pathways()</a></code> 
-        </dt>
-        <dd>Count enriched pathways</dd>
-      </dl><dl><dt>
-          
-          <code><a href="gp_enrichment.html">gp_enrichment()</a></code> 
-        </dt>
-        <dd>Functional enrichment using gprofiler</dd>
-      </dl><dl><dt>
-          
-          <code><a href="gp_plot.html">gp_plot()</a></code> 
-        </dt>
-        <dd>Functional enrichment plot</dd>
-      </dl><dl><dt>
-          
-          <code><a href="gp_table.html">gp_table()</a></code> 
-        </dt>
-        <dd>Functional enrichment results table</dd>
-      </dl><dl><dt>
-          
-          <code><a href="gp_tidy_results.html">gp_tidy_results()</a></code> 
-        </dt>
-        <dd>Tidy functional enrichment results</dd>
-      </dl></div><div class="section level2">
-      <h2 id="gene-overlap">Gene overlap<a class="anchor" aria-label="anchor" href="#gene-overlap"></a></h2>
-      
-      
-
-      
-    </div><div id="" class="section level2">
-      
-      
-      
-
-      <dl><dt>
-          
-          <code><a href="overlap_count.html">overlap_count()</a></code> 
-        </dt>
-        <dd>Count MAIC and alternative gene list overlap</dd>
-      </dl><dl><dt>
-          
-          <code><a href="overlap_table.html">overlap_table()</a></code> 
-        </dt>
-        <dd>MAIC overlap table</dd>
-      </dl><dl><dt>
-          
-          <code><a href="overlap_test.html">overlap_test()</a></code> 
-        </dt>
-        <dd>Compute hypergeometric test P value of gene overlap</dd>
-      </dl><dl><dt>
-          
-          <code><a href="overlap_unidentified_table.html">overlap_unidentified_table()</a></code> 
-        </dt>
-        <dd>MAIC unidentified table</dd>
-      </dl><dl><dt>
-          
-          <code><a href="overlap_venn.html">overlap_venn()</a></code> 
-        </dt>
-        <dd>MAIC overlap Venn diagram</dd>
       </dl></div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside></div>
