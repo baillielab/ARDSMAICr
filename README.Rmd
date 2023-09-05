@@ -84,10 +84,10 @@ It has the following format:
 
 Additional data are:
 
--   `data_study`. A summary of the studies identified by the systematic review, including their methods.
--   `data_contributions`. Calculated study contributions to MAIC.
--   `data_biolitmine`. The results of a [BioLitMine]() search for the MeSH "Respiratory Distress Syndrome, Adult".
--   `data_covidmaic`. A ranked list of genes from a MAIC of [SARS-CoV-2 studies]().
+-   `data_study` - A summary of the studies identified by the systematic review, including their methods.
+-   `data_contributions` - Calculated study contributions to MAIC.
+-   `data_biolitmine` - The results of a [BioLitMine]() search for the MeSH "Respiratory Distress Syndrome, Adult".
+-   `data_covidmaic` - A ranked list of genes from a MAIC of [SARS-CoV-2 studies]().
 
 <br />
 
