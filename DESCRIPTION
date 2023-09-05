@@ -1,11 +1,11 @@
 Package: ARDSMAICR
-Title: Analysis of ARDS Genomics MAIC
+Title: A meta-analysis by information content of genome-wide studies of ARDS
 Version: 0.1.1
 Authors@R: 
     person("Jonathan", "Millar", , "jonathan.millar@ed.ac.uk", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-4853-9377"))
-Description: Convenience functions to analyse the output of the ARDS
-    Genomics systematic review and meta-analysis by information content.
+Description: The results of a MAIC of genome-wide studies of the host-reponse in ARDS. The package 
+    includes several helper functions useful for analysis.
 License: MIT + file LICENSE
 URL: https://jonathanemillar.github.io/ARDSMAICr/
 Depends: 

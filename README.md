@@ -11,7 +11,7 @@
 <!-- badges: end -->
 
 The ARDSMAICR package contains the results of a meta-analysis by
-information content (MAIC) of whole-genome studies of the host response
+information content (MAIC) of genome-wide studies of the host response
 to acute respiratory distress syndrome (ARDS). These data are
 accompanied by a range of helper functions useful for analysis.
 
